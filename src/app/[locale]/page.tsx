@@ -1,4 +1,4 @@
-import HeroSection from "@/components/main";
+import HeroSection, { Steps } from "@/components/main";
 import { getHomePage } from "../../../sanity/sanity-utils";
 import { getDictionary } from "@/lib/get-dictionary";
 import styled from "styled-components";
@@ -32,6 +32,7 @@ export default async function Home({ params }: Props) {
         <Line />
         <RealityDescription>{realitat.description}</RealityDescription>
       </RealitatSection>
+      <Steps dict={dict} />
     </>
   );
 }
