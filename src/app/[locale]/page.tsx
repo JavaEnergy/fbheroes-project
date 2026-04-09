@@ -1,4 +1,4 @@
-import HeroSection, { Partners, Steps } from "@/components/main";
+import HeroSection, { Partners, Robotic, Steps } from "@/components/main";
 import { getHomePage } from "../../../sanity/sanity-utils";
 import { getDictionary } from "@/lib/get-dictionary";
 import styled from "styled-components";
@@ -11,7 +11,6 @@ export default async function Home({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as "en" | "de");
   const data = await getHomePage(locale);
-  console.log("Home page data:", data);
   const realitat = data.realitat;
   const greenIndex = realitat.title.indexOf(":") + 1;
   if (!data) return <div>Loading or No data found...</div>;
@@ -35,6 +34,11 @@ export default async function Home({ params }: Props) {
       </RealitatSection>
       <Steps dict={dict.homeStrategy} />
       <Partners dict={dict.home} partners={data.partnerschaften} />
+      <Robotic
+        dict={dict.homeInnovation}
+        leftImage={data.dividerImages.leftImage}
+        rightImage={data.dividerImages.rightImage}
+      />
     </>
   );
 }

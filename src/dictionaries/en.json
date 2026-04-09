@@ -16,7 +16,8 @@
   "home": {
     "viewServices": "View Services",
     "bookCall": "Get in Touch",
-    "reality": "The Reality"
+    "reality": "The Reality",
+    "partnerships": "Target Groups & Partnerships"
   },
   "homeStrategy": {
     "title": "The Strategic Approach",
@@ -25,5 +26,23 @@
     "description": "F&B Heroes focuses on the economic basis to ensure long-term stability in volatile markets.",
     "stepLabel": "Step",
     "steps": ["The Business Model", "The Concept", "The Implementation"]
+  },
+  "homeInnovation": {
+    "subtitle": "Innovation & Robotics",
+    "title": "The Edge through Robotic Gastronomy",
+    "features": [
+      {
+        "title": "Process Automation",
+        "desc": "Relieving staff of repetitive tasks for more focus on the guest."
+      },
+      {
+        "title": "Constant Quality",
+        "desc": "Precise results with every preparation, regardless of personnel capacity."
+      },
+      {
+        "title": "Scalable Margins",
+        "desc": "Significant reduction in operating costs through intelligent technology integration."
+      }
+    ]
   }
 }

@@ -50,10 +50,10 @@ const HeroContainer = styled.section`
 `;
 
 const HeroLeft = styled.div`
-  width: 100%;
+  width: 40%;
 `;
 const HeroRight = styled.div`
-  width: 100%;
+  width: 30%;
   position: relative;
 `;
 
@@ -84,7 +84,7 @@ const ContactLink = styled(Link)`
 `;
 
 const HeroImage = styled.img`
-  width: 55%;
+  width: 70%;
   border-radius: 16px;
 `;
 
