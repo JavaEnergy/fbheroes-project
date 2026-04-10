@@ -11,40 +11,56 @@ export async function getHomePage(lang: string): Promise<any> {
   return client.fetch(
     groq`*[_type == "home-page"][0]{
       _id,
-      // 1. Hero Section
       hero {
         "title": title.${lang},
         "description": description.${lang},
         "image": image.asset->url
       },
-      // 2. Experience Stats Array
       stats[] {
         number,
         "label": label.${lang}
       },
-      // 3. Realität Section
       realitat {
         "title": title.${lang},
         "description": description.${lang},
         "image": image.asset->url
       },
-      // 4. Partnerschaften Cards Array
       partnerschaften[] {
         "title": title.${lang},
         "description": description.${lang},
         "image": image.asset->url,
         link
       },
-      // 5. Middle Divider Images
       dividerImages {
         "leftImage": leftImage.asset->url,
         "rightImage": rightImage.asset->url
       },
-      // 6. Final Bottom Cards Array
       finalCards[] {
         "title": title.${lang},
         "description": description.${lang},
         "image": image.asset->url
+      }
+    }`,
+    { lang },
+  );
+}
+
+export async function getServicesPage(lang: string): Promise<any> {
+  return client.fetch(
+    groq`*[_type == "services-page"][0]{
+      _id,
+      hero {
+        "subtitle": subtitle.${lang},
+        "title": title.${lang},
+        "description": description.${lang},
+        "image": image.asset->url
+      },
+      overview {
+        cards[] {
+          "title": title.${lang},
+          "description": description.${lang},
+          "image": image.asset->url
+        }
       }
     }`,
     { lang },

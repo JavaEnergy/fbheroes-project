@@ -44,6 +44,7 @@ const Cards = styled.div`
   margin-top: 64px;
   gap: 24px;
   justify-content: center;
+  flex-wrap: wrap;
 `;
 
 const Card = styled.div`
