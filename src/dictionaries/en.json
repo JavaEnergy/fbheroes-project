@@ -47,5 +47,12 @@
         "desc": "Significant reduction in operating costs through intelligent technology integration."
       }
     ]
+  },
+  "services": {
+    "integration": {
+      "title": "Strategic Integration",
+      "description": "Seamless integration into existing teams to accelerate innovation processes.",
+      "expertise": "EXPERTISE & METHOD"
+    }
   }
 }
