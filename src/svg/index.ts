@@ -9,3 +9,5 @@ export { default as Penta } from "./Penta";
 export { default as CheckTwo } from "./CheckTwo";
 export { default as GreenHands } from "./GreenHands";
 export { default as GreenRocket } from "./GreenRocket";
+export { default as Remove } from "./Remove";
+export { default as DoubleCheck } from "./DoubleCheck";

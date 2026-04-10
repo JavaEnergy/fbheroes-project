@@ -73,6 +73,29 @@
           "Definierter Zeitrahmen & Budget"
         ]
       }
+    },
+    "targetGroupsSection": {
+      "title": "Zielgruppen & Perspektiven",
+      "description": "Berücksichtigung der spezifischen Anforderungen unterschiedlicher Marktteilnehmer."
+    },
+    "differentiation": {
+      "title": "Differenzierung am Markt",
+      "traditional": {
+        "label": "Klassische F&B-Beratung",
+        "items": [
+          "Rein theoretische Konzepte ohne Umsetzungsfokus",
+          "Fehlende operative Projektverantwortung",
+          "Geringe Anpassungsgeschwindigkeit im Feedback-Loop"
+        ]
+      },
+      "heroes": {
+        "label": "Arbeitsweise F&B Heroes",
+        "items": [
+          "Operative Implementierung & Go-Live Begleitung",
+          "Integration als Fractional Leadership Partner",
+          "Technologie-Fokus (Automatisierung, KI & Robotics)"
+        ]
+      }
     }
   }
 }

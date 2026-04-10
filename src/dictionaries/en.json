@@ -70,6 +70,29 @@
         "description": "Targeted support for specific milestones such as new openings, new developments, or the technical implementation of robotics in gastronomy.",
         "features": ["Clear scope of services", "Defined timeframe & budget"]
       }
+    },
+    "targetGroupsSection": {
+      "title": "Target Groups & Perspectives",
+      "description": "Consideration of the specific requirements of different market participants."
+    },
+    "differentiation": {
+      "title": "Market Differentiation",
+      "traditional": {
+        "label": "Traditional F&B Consulting",
+        "items": [
+          "Purely theoretical concepts lacking implementation focus",
+          "Lack of operational project responsibility",
+          "Slow speed of adaptation in feedback loops"
+        ]
+      },
+      "heroes": {
+        "label": "The F&B Heroes Approach",
+        "items": [
+          "Operational implementation & go-live support",
+          "Integration as Fractional Leadership Partners",
+          "Technology focus (Automation, AI & Robotics)"
+        ]
+      }
     }
   }
 }
