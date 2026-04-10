@@ -53,6 +53,23 @@
       "title": "Strategic Integration",
       "description": "Seamless integration into existing teams to accelerate innovation processes.",
       "expertise": "EXPERTISE & METHOD"
+    },
+    "collaboration": {
+      "title": "Models of Cooperation",
+      "description": "Flexibility is the core feature of our partnerships. The models are based on the individual needs of our clients.",
+      "retainer": {
+        "title": "Retainer Agreement",
+        "description": "Long-term support through a defined monthly hourly quota. This model is suitable for continuous optimization and strategic consulting over several quarters.",
+        "features": [
+          "Prioritized resource availability",
+          "Regular strategy check-ins"
+        ]
+      },
+      "projectBased": {
+        "title": "Project-based",
+        "description": "Targeted support for specific milestones such as new openings, new developments, or the technical implementation of robotics in gastronomy.",
+        "features": ["Clear scope of services", "Defined timeframe & budget"]
+      }
     }
   }
 }

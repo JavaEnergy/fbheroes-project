@@ -53,6 +53,26 @@
       "title": "Strategische Integration",
       "description": "Nahtlose Einbindung in bestehende Teams zur Beschleunigung von Innovationsprozessen.",
       "expertise": "EXPERTISE & METHODE"
+    },
+    "collaboration": {
+      "title": "Modelle der Zusammenarbeit",
+      "description": "Flexibilität ist das Kernmerkmal der Partnerschaften. Die Modelle orientieren sich am individuellen Bedarf der Mandanten.",
+      "retainer": {
+        "title": "Rahmenvereinbarung",
+        "description": "Langfristige Begleitung durch ein definiertes monatliches Stundenkontingent. Dieses Modell eignet sich für die kontinuierliche Optimierung und strategische Beratung über mehrere Quartale.",
+        "features": [
+          "Priorisierte Ressourcen-Verfügbarkeit",
+          "Regelmäßige Strategie-Checkins"
+        ]
+      },
+      "projectBased": {
+        "title": "Projektbasiert",
+        "description": "Zielgerichtete Unterstützung für spezifische Meilensteine wie Neueröffnungen, Neuentwicklungen oder die technische Implementierung von Robotik in der Gastronomie.",
+        "features": [
+          "Klares Leistungsverzeichnis",
+          "Definierter Zeitrahmen & Budget"
+        ]
+      }
     }
   }
 }

@@ -7,3 +7,5 @@ export { default as Check } from "./Check";
 export { default as Star } from "./Star";
 export { default as Penta } from "./Penta";
 export { default as CheckTwo } from "./CheckTwo";
+export { default as GreenHands } from "./GreenHands";
+export { default as GreenRocket } from "./GreenRocket";
