@@ -2,6 +2,7 @@ import { getDictionary } from "@/lib/get-dictionary";
 import { getServicesPage } from "../../../../sanity/sanity-utils";
 import {
   Collaboration,
+  ContactSection,
   Differentiation,
   HeroSection,
   Overview,
@@ -24,6 +25,7 @@ export default async function Services({ params }: Props) {
         cards={data.overview.cards}
       />
       <Differentiation dict={dict.services.differentiation} />
+      <ContactSection dict={dict.services.ctaSection} />
     </>
   );
 }

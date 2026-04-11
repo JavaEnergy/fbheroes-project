@@ -18,6 +18,7 @@ export default function LinkButton(props: ButtonProps) {
 
 const Button = styled(Link)<{ color: string; bgcolor: string }>`
   color: ${(props) => props.color};
+  width: fit-content;
   background-color: ${(props) => props.bgcolor};
   font-size: 16px;
   font-weight: 600;
