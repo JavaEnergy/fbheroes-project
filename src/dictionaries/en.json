@@ -99,5 +99,56 @@
       "description": "In a 30-minute initial consultation, potentials and objectives for a collaboration will be discussed.",
       "button": "Request initial consultation"
     }
+  },
+  "roboticPage": {
+    "hero": {
+      "contactBtn": "Contact me",
+      "learnMoreBtn": "Learn more",
+      "statsText": "Process accuracy through my integrated system control."
+    },
+    "comparison": {
+      "badge": "My Proof of Competence",
+      "mainTitle": "I show you the difference between simple hardware purchase and my systemic integration.",
+      "statusQuo": {
+        "badge": "STATUS QUO",
+        "title": "Robotics alone",
+        "bullets": [
+          "Standalone solution without process connection",
+          "Marketing gag instead of efficiency driver",
+          "Complex operation without strategy"
+        ],
+        "footer": "Often just an expensive investment without measurable ROI."
+      },
+      "myStandard": {
+        "badge": "MY STANDARD",
+        "title": "Robotics + Business Model",
+        "bullets": [
+          "Fully integrated workflow processes",
+          "Scalable system gastronomy concepts",
+          "My holistic solution for your employee catering"
+        ],
+        "footer": "My key to your profitable and crisis-proof gastronomy."
+      }
+    },
+    "suitability": {
+      "title": "When does robotics make sense?",
+      "description": "I assess your situation absolutely neutrally. I don't solve every problem with a robot – but I can transform many through them.",
+      "recommend": {
+        "title": "I recommend it for...",
+        "items": [
+          "High standardization & volume business",
+          "Acute staff shortages in your production",
+          "Focus on 24/7 availability"
+        ]
+      },
+      "adviseAgainst": {
+        "title": "I advise against it for...",
+        "items": [
+          "Individual high-end gastronomy",
+          "Low throughput & high variance",
+          "Lack of digital infrastructure"
+        ]
+      }
+    }
   }
 }

@@ -12,3 +12,4 @@ export { default as GreenRocket } from "./GreenRocket";
 export { default as Remove } from "./Remove";
 export { default as DoubleCheck } from "./DoubleCheck";
 export { default as Storm } from "./Storm";
+export { default as RoboIcon } from "./RoboIcon";

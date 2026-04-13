@@ -66,3 +66,43 @@ export async function getServicesPage(lang: string): Promise<any> {
     { lang },
   );
 }
+
+export async function getRoboticPage(lang: string): Promise<any> {
+  return client.fetch(
+    groq`*[_type == "robotic-gastronomy-page"][0]{
+      _id,
+      // 01. Hero Section
+      hero {
+        "badge": badge.${lang},
+        "title": title.${lang},
+        "description": description.${lang},
+        "image": image.asset->url
+      },
+      // 02. Definition & Cards Section
+      definitionCards {
+        "title": title.${lang},
+        "description": description.${lang},
+        cards[] {
+          "icon": icon.asset->url,
+          "title": title.${lang},
+          "description": description.${lang}
+        }
+      },
+      // 03. Expertise & References Section
+      expertiseReferences {
+        "title": title.${lang},
+        cards[] {
+          "image": image.asset->url,
+          "label": label.${lang},
+          "title": title.${lang},
+          "description": description.${lang}
+        }
+      },
+      // 04. Implementation Partner Section
+      implementationPartner {
+        "circleImage": circleImage.asset->url
+      }
+    }`,
+    { lang },
+  );
+}

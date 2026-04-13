@@ -102,5 +102,56 @@
       "description": "In einem 30-minütigen Erstgespräch werden Potenziale und Zielsetzungen für eine Zusammenarbeit erörtert.",
       "button": "Erstgespräch anfragen"
     }
+  },
+  "roboticPage": {
+    "hero": {
+      "contactBtn": "Mich kontaktieren",
+      "learnMoreBtn": "Mehr erfahren",
+      "statsText": "Prozessgenauigkeit durch meine integrierte Systemsteuerung."
+    },
+    "comparison": {
+      "badge": "Mein Kompetenz-Beweis",
+      "mainTitle": "Ich zeige Ihnen den Unterschied zwischen simplem Hardware-Kauf und meiner systemischen Integration.",
+      "statusQuo": {
+        "badge": "STATUS QUO",
+        "title": "Robotik allein",
+        "bullets": [
+          "Einzellösung ohne Prozessanbindung",
+          "Marketing-Gag statt Effizienztreiber",
+          "Komplexe Operation ohne Strategie"
+        ],
+        "footer": "Oft nur eine teure Investition ohne messbaren ROI."
+      },
+      "myStandard": {
+        "badge": "MEIN STANDARD",
+        "title": "Robotik + Geschäftsmodell",
+        "bullets": [
+          "Voll integrierte Workflow-Prozesse",
+          "Skalierbare Systemgastronomie-Konzepte",
+          "Meine ganzheitliche Lösung für Ihre Mitarbeiterversorgung"
+        ],
+        "footer": "Mein Schlüssel zu Ihrer rentablen und krisensicheren Gastronomie."
+      }
+    },
+    "suitability": {
+      "title": "Wann macht Robotik Sinn?",
+      "description": "Ich bewerte Ihre Situation absolut neutral. Nicht jedes Problem löse ich durch einen Roboter – aber ich kann viele dadurch transformieren.",
+      "recommend": {
+        "title": "Ich empfehle es bei...",
+        "items": [
+          "Hoher Standardisierung & Volumengeschäft",
+          "Akutem Personalmangel in Ihrer Produktion",
+          "Fokus auf 24/7 Verfügbarkeit"
+        ]
+      },
+      "adviseAgainst": {
+        "title": "Ich rate ab bei...",
+        "items": [
+          "Individueller High-End Gastronomie",
+          "Geringem Durchlauf & hoher Varianz",
+          "Mangelnder digitaler Infrastruktur"
+        ]
+      }
+    }
   }
 }
