@@ -129,3 +129,26 @@ export async function getNetworkPage(lang: string): Promise<any> {
     { lang },
   );
 }
+
+export async function getAboutPage(lang: string): Promise<any> {
+  return client.fetch(
+    groq`*[_type == "about-page"][0]{
+      hero {
+        "badge": badge.${lang},
+        "title": title.${lang},
+        "description": description.${lang},
+        "image": image.asset->url
+      },
+      cardsSection {
+        "title": title.${lang},
+        "description": description.${lang},
+        cards[] {
+          "image": image.asset->url,
+          "title": title.${lang},
+          "description": description.${lang}
+        }
+      }
+    }`,
+    { lang },
+  );
+}
