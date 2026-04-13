@@ -185,5 +185,26 @@
       "description": "In einem ersten Gespräch werden Ziele geklärt und jene Experten identifiziert, die das Projekt zum Erfolg führen. F&B Heroes agiert dabei als zentraler Netzwerkpartner.",
       "button": "Erstgespräch anfragen"
     }
+  },
+  "about": {
+    "vision": {
+      "title": "Expertise & Vision",
+      "subtitle": "In einer Branche, die sich oft in Details verliert, fokussiere ich mich auf die Architektur Ihres Erfolgs.",
+      "cards": [
+        {
+          "title": "Meine Mustererkennung",
+          "text": "Durch die Begleitung hunderter Konzepte habe ich einen scharfen Blick für systemische Schwachstellen entwickelt, die oft hinter glänzenden Fassaden verborgen bleiben."
+        },
+        {
+          "title": "Meine Vision der Zukunft",
+          "text": "Ich verbinde klassisches Handwerk mit Robotics und KI. Nicht als Trend, sondern um die menschliche Gastfreundschaft im Kern wieder rentabel und zukunftsfähig zu machen."
+        }
+      ]
+    },
+    "bottomCTA": {
+      "title": "Bereit für den nächsten Schritt?",
+      "description": "Lassen Sie uns in einem persönlichen Erstgespräch klären, wie ich Ihre Vision gemeinsam mit Ihnen Realität werden lasse.",
+      "button": "Erstgespräch anfragen"
+    }
   }
 }

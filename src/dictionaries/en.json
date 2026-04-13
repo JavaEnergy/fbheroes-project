@@ -182,5 +182,26 @@
       "description": "In an initial conversation, goals are clarified and those experts identified who will lead the project to success. F&B Heroes acts as a central network partner.",
       "button": "Request initial consultation"
     }
+  },
+  "about": {
+    "vision": {
+      "title": "Expertise & Vision",
+      "subtitle": "In an industry that often loses itself in details, I focus on the architecture of your success.",
+      "cards": [
+        {
+          "title": "My Pattern Recognition",
+          "text": "Through accompanying hundreds of concepts, I have developed a keen eye for systemic weaknesses that often remain hidden behind shiny facades."
+        },
+        {
+          "title": "My Vision of the Future",
+          "text": "I combine classic craftsmanship with robotics and AI. Not as a trend, but to make human hospitality profitable and sustainable again at its core."
+        }
+      ]
+    },
+    "bottomCTA": {
+      "title": "Ready for the next step?",
+      "description": "Let's clarify in a personal initial consultation how I can make your vision a reality together with you.",
+      "button": "Request initial consultation"
+    }
   }
 }

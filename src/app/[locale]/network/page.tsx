@@ -12,8 +12,6 @@ export default async function Network({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as "en" | "de");
   const data = await getNetworkPage(locale);
-
-  // Using the dictionary keys we defined earlier
   const t = dict.network.bottomCTA;
 
   return (
