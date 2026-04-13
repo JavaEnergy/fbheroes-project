@@ -167,5 +167,20 @@
       "button": "Start my Robotic Gastro Check",
       "disclaimer": "Non-binding & free • Your individual evaluation"
     }
+  },
+  "network": {
+    "hero": {
+      "button": "Schedule initial consultation"
+    },
+    "curation": {
+      "title": "Strategic Curation",
+      "description": "No standard solutions. F&B Heroes forms the team for every task that guarantees maximum project success.",
+      "button": "Get in touch"
+    },
+    "bottomCTA": {
+      "title": "Ready for the next step?",
+      "description": "In an initial conversation, goals are clarified and those experts identified who will lead the project to success. F&B Heroes acts as a central network partner.",
+      "button": "Request initial consultation"
+    }
   }
 }

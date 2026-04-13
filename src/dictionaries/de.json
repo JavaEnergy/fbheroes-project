@@ -170,5 +170,20 @@
       "button": "Meinen Robotic Gastro Check starten",
       "disclaimer": "Unverbindlich & Kostenlos • Ihre individuelle Auswertung"
     }
+  },
+  "network": {
+    "hero": {
+      "button": "Erstgespräch vereinbaren"
+    },
+    "curation": {
+      "title": "Strategische Kuration",
+      "description": "Keine Standardlösungen. F&B Heroes formt für jede Aufgabenstellung das Team, das den maximalen Projekterfolg garantiert.",
+      "button": "Kontakt aufnehmen"
+    },
+    "bottomCTA": {
+      "title": "Bereit für den nächsten Schritt?",
+      "description": "In einem ersten Gespräch werden Ziele geklärt und jene Experten identifiziert, die das Projekt zum Erfolg führen. F&B Heroes agiert dabei als zentraler Netzwerkpartner.",
+      "button": "Erstgespräch anfragen"
+    }
   }
 }
