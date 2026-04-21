@@ -61,6 +61,9 @@ const RealitatSection = styled.section`
   align-items: center;
   justify-content: center;
   text-align: center;
+  @media (max-width: 1024px) {
+    padding: 72px 24px;
+  }
 `;
 
 const RealityTitle = styled.h3`
@@ -73,6 +76,9 @@ const RealityHeading = styled.h2`
   font-size: 40px;
   width: 50%;
   margin-top: 16px;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 const Line = styled.hr`
@@ -85,4 +91,8 @@ const Line = styled.hr`
 const RealityDescription = styled.p`
   font-size: 20px;
   width: 50%;
+  @media (max-width: 1024px) {
+    width: 100%;
+    font-size: 18px;
+  }
 `;

@@ -49,10 +49,18 @@ const StepContainer = styled.section`
   display: flex;
   align-items: center;
   gap: 48px;
+  @media (max-width: 1024px) {
+    padding: 72px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const Left = styled.div`
   width: 35%;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 const Right = styled.div`
@@ -61,6 +69,10 @@ const Right = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 16px;
+  @media (max-width: 1024px) {
+    width: 100%;
+    align-items: stretch;
+  }
 `;
 
 const StepTitle = styled.h3`
@@ -87,6 +99,9 @@ const StepBox = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: #0f5238;
+  @media (max-width: 768px) {
+    padding: 24px;
+  }
 `;
 
 const StepBoxTitle = styled.h4`
