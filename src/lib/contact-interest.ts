@@ -7,7 +7,7 @@ export const CONTACT_INTEREST_OPTIONS = [
 
 export const CONTACT_INTEREST_VALUES = CONTACT_INTEREST_OPTIONS.map(
   (option) => option.value,
-);
+ ) as readonly string[];
 
 export type ContactInterest = (typeof CONTACT_INTEREST_OPTIONS)[number]["value"];
 
