@@ -104,7 +104,32 @@
     "hero": {
       "contactBtn": "Contact me",
       "learnMoreBtn": "Learn more",
-      "statsText": "Process accuracy through my integrated system control."
+      "statsText": "Process accuracy through my integrated system control.",
+      "modal": {
+        "headline": "Robotic Gastronomy – a new operating system for gastronomy.",
+        "intro1": "Gastronomy is facing a structural transformation. Over 60,000 open positions, rising labor costs, and growing margin pressure make it clear: the existing operating model is reaching its limits.",
+        "intro2": "Robotic Gastronomy is the answer. Not as a single technology, but as an integrated operating system built on four pillars:",
+        "pillars": [
+          {
+            "title": "Automation",
+            "text": "Robotics takes over recurring processes in the kitchen, logistics, and service. The result: consistent quality, less dependency on staff, predictable workflows."
+          },
+          {
+            "title": "Digitalization",
+            "text": "Fully networked systems connect ordering, production, and guest retention. Every process becomes measurable and controllable."
+          },
+          {
+            "title": "AI Integration",
+            "text": "Artificial intelligence enables forecasts for revenue, cost of goods, and expenses. Planning replaces gut feeling."
+          },
+          {
+            "title": "Scalability",
+            "text": "Together, these disciplines make gastronomy reproducible – across locations, without complexity and costs growing proportionally."
+          }
+        ],
+        "outro1": "Cooking robotics is already being used today by companies such as REWE, Mercedes-Benz, and the German armed forces. The market is growing at around 20% annually. The technology is available – what has been missing so far are business models that integrate it economically.",
+        "outro2": "This is exactly where Robotic Gastronomy comes in: technology not as an end in itself, but as the foundation for gastronomy that works economically – for operators, investors, and guests."
+      }
     },
     "comparison": {
       "badge": "The Proof of Competence",

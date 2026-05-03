@@ -107,7 +107,32 @@
     "hero": {
       "contactBtn": "Kontak aufnehmen",
       "learnMoreBtn": "Mehr erfahren",
-      "statsText": "Prozessgenauigkeit durch meine integrierte Systemsteuerung."
+      "statsText": "Prozessgenauigkeit durch meine integrierte Systemsteuerung.",
+      "modal": {
+        "headline": "Robotic Gastronomy – ein neues Betriebssystem für Gastronomie.",
+        "intro1": "Die Gastronomie steht vor einem strukturellen Wandel. Über 60.000 offene Stellen, steigende Personalkosten und wachsender Margendruck machen deutlich: Das bisherige Betriebsmodell stößt an seine Grenzen.",
+        "intro2": "Robotic Gastronomy ist die Antwort darauf. Nicht als einzelne Technologie, sondern als integriertes Betriebssystem, das auf vier Säulen steht:",
+        "pillars": [
+          {
+            "title": "Automatisierung",
+            "text": "Robotik übernimmt wiederkehrende Prozesse in Küche, Logistik und Service. Das Ergebnis: konsistente Qualität, weniger Personalabhängigkeit, kalkulierbare Abläufe."
+          },
+          {
+            "title": "Digitalisierung",
+            "text": "Durchgängig vernetzte Systeme verbinden Bestellung, Produktion und Gästebindung. Jeder Prozess wird messbar und steuerbar."
+          },
+          {
+            "title": "AI Integration",
+            "text": "Künstliche Intelligenz ermöglicht Prognosen für Umsatz, Wareneinsatz und Kosten. Planung ersetzt Bauchgefühl."
+          },
+          {
+            "title": "Skalierbarkeit",
+            "text": "Gemeinsam machen diese Disziplinen Gastronomie reproduzierbar – über Standorte hinweg, ohne dass Komplexität und Kosten proportional mitsteigen."
+          }
+        ],
+        "outro1": "Kochrobotik wird bereits heute von Unternehmen wie REWE, Mercedes-Benz und der Bundeswehr eingesetzt. Der Markt wächst mit rund 20 % jährlich. Die Technologie ist verfügbar – was bisher fehlte, sind Geschäftsmodelle, die sie wirtschaftlich sinnvoll integrieren.",
+        "outro2": "Genau hier setzt Robotic Gastronomy an: Technologie nicht als Selbstzweck, sondern als Grundlage für Gastronomie, die wirtschaftlich funktioniert – für Betreiber, Investoren und Gäste."
+      }
     },
     "comparison": {
       "badge": "Der Kompetenz-Beweis",

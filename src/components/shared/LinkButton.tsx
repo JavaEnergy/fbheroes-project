@@ -20,16 +20,14 @@ export default function LinkButton(props: ButtonProps) {
 const Button = styled(Link)<{ color: string; bgcolor: string }>`
   color: ${(props) => props.color};
   width: fit-content;
-  background-color: ${(props) => props.bgcolor};
+  background: ${(props) => props.bgcolor};
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 16px 32px;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: opacity 0.2s;
   &:hover {
-    opacity: 0.8;
-    transition: all 0.2s;
-    color: ${(props) => props.bgcolor};
-    background-color: ${(props) => props.color};
+    opacity: 0.88;
   }
 `;

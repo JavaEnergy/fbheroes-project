@@ -1,7 +1,7 @@
-import RightArrow, { CheckTwo, Penta, RoboIcon } from "@/svg";
-import Link from "next/link";
+import { RoboIcon } from "@/svg";
 import styled from "styled-components";
 import LinkButton from "../shared/LinkButton";
+import LearnMoreModal from "./LearnMoreModal";
 
 interface Props {
   badge: string;
@@ -19,6 +19,7 @@ export default function HeroSection(props: Props) {
         <Badge>{props.badge}</Badge>
         <HeroTitle>
           {titles[0]}
+          <br />
           <em style={{ color: "#0F5238" }}>{titles.slice(1).join(" ")}</em>
         </HeroTitle>
         <HeroDescription>{props.description}</HeroDescription>
@@ -27,15 +28,15 @@ export default function HeroSection(props: Props) {
             label={props.dict.contactBtn}
             url={"/contact"}
             color={"#fff"}
-            bgcolor={"#2D6A4F"}
+            bgcolor={"linear-gradient(135deg, #1a5c40, #2d6a4f)"}
           />
-          <ContactLink href="/contact">
-            {props.dict.learnMoreBtn} <RightArrow />
-          </ContactLink>
+          <LearnMoreModal label={props.dict.learnMoreBtn} dict={props.dict.modal} />
         </Btns>
       </HeroLeft>
       <HeroRight>
-        <HeroImage src={props.image} alt="Hero Image" />
+        <ImageWrapper>
+          <HeroImage src={props.image} alt="Hero Image" />
+        </ImageWrapper>
         <ImageTitle>
           <Wrapper>
             <RoboIcon />
@@ -50,95 +51,110 @@ export default function HeroSection(props: Props) {
 
 const HeroContainer = styled.section`
   width: 100%;
-  padding: 80px 64px 128px 64px;
-  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 96px 32px 128px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
   align-items: center;
-  justify-content: center;
-  gap: 128px;
+  overflow: hidden;
+  position: relative;
+
   @media (max-width: 1024px) {
-    padding: 32px 24px 72px;
+    grid-template-columns: 1fr;
+    padding: 48px 24px 80px;
     gap: 40px;
-    flex-direction: column;
-    align-items: flex-start;
   }
 `;
 
 const HeroLeft = styled.div`
-  width: 50%;
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
+  z-index: 10;
 `;
+
 const HeroRight = styled.div`
-  width: 50%;
   position: relative;
-  @media (max-width: 1024px) {
-    width: 100%;
-  }
 `;
 
 const HeroTitle = styled.h1`
-  font-size: 56px;
+  font-size: 72px;
   font-weight: 700;
-  margin-top: 32px;
-`;
-
-const HeroDescription = styled.p`
-  font-size: 16px;
-  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
   margin-top: 24px;
-  font-style: italic;
-`;
+  margin-bottom: 32px;
 
-const HeroImage = styled.img`
-  width: 70%;
-  border-radius: 16px;
   @media (max-width: 1024px) {
-    width: 100%;
+    font-size: 52px;
+  }
+  @media (max-width: 600px) {
+    font-size: 40px;
   }
 `;
 
+const HeroDescription = styled.p`
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.625;
+  font-style: italic;
+  max-width: 512px;
+  margin-bottom: 48px;
+
+  @media (max-width: 1024px) {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  aspect-ratio: 1 / 1;
+  border-radius: 32px;
+  overflow: hidden;
+  width: 100%;
+`;
+
+const HeroImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+`;
+
 const ImageTitle = styled.div`
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 24px;
-  max-width: 282px;
+  background-color: #f4f4f2;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 320px;
   position: absolute;
   bottom: -32px;
   left: -32px;
   font-size: 14px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.06);
-  background-color: #f4f4f2;
-  align-items: center;
+  box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.18);
+
   @media (max-width: 1024px) {
     position: static;
     margin-top: 16px;
     max-width: 100%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 `;
 
 const Btns = styled.div`
-  margin-top: 40px;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 16px;
   flex-wrap: wrap;
-`;
-
-const ContactLink = styled(Link)`
-  font-size: 16px;
-  color: #2d6a4f;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 `;
 
 const Badge = styled.div`
   color: #0f5238;
   padding: 6px 16px;
   background-color: #92f7c3;
-  border-radius: 20px;
+  border-radius: 9999px;
   width: fit-content;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0;
 `;
 
 const Wrapper = styled.div`
