@@ -18,6 +18,7 @@ export async function generateMetadata({
     description: isDE
       ? "F&B Heroes unterstützt Gastronomiebetriebe mit strategischer Beratung, Netzwerk und innovativen Robotic-Gastronomy-Lösungen für nachhaltigen Markterfolg."
       : "F&B Heroes supports food & beverage businesses with strategic consulting, network access, and innovative robotic gastronomy solutions for lasting market success.",
+    colorScheme: "light",
   };
 }
 
@@ -32,7 +33,7 @@ export default async function RootLayout({
   const dict = await getDictionary(locale as "en" | "de");
 
   return (
-    <html lang={locale}>
+    <html lang={locale} style={{ colorScheme: "light" }}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
