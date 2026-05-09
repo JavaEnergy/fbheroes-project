@@ -303,6 +303,14 @@
       "title": "Passt die Expertise von F&B Heroes zum Vorhaben?",
       "description": "Nutzen Sie das 2-Minuten Self-Assessment Tool, um herauszufinden, ob die Erfahrung im Bereich Food, Tech & Gastronomy zu den gesteckten Zielen passt.",
       "button": "Assessment starten"
+    },
+    "modal": {
+      "successTitle": "Nachricht gesendet!",
+      "successBody": "Vielen Dank für Ihre Anfrage. Wir haben Ihre Nachricht erhalten und werden uns in Kürze bei Ihnen melden.",
+      "errorTitle": "Fehler beim Senden",
+      "errorBody": "Leider konnte Ihre Nachricht nicht übermittelt werden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.",
+      "buttonClose": "Schließen",
+      "buttonRetry": "Erneut versuchen"
     }
   }
 }

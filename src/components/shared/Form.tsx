@@ -1,4 +1,7 @@
-import styled from "styled-components";
+"use client";
+
+import React, { useState } from "react";
+import styled, { keyframes } from "styled-components";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -8,6 +11,9 @@ import {
   type ContactFormSubmission,
 } from "@/lib/contact-interest";
 
+/**
+ * PROPS & TYPES
+ */
 interface ContactProps {
   dict: {
     contact: {
@@ -28,6 +34,14 @@ interface ContactProps {
         required: string;
         email: string;
       };
+      modal: {
+        successTitle: string;
+        successBody: string;
+        errorTitle: string;
+        errorBody: string;
+        buttonClose: string;
+        buttonRetry: string;
+      };
     };
   };
   inputBgColor?: string;
@@ -37,6 +51,9 @@ interface ContactProps {
 
 type ContactErrorsDict = ContactProps["dict"]["contact"]["errors"];
 
+/**
+ * VALIDATION SCHEMA
+ */
 const createContactSchema = (errorDict: ContactErrorsDict) =>
   yup
     .object({
@@ -52,13 +69,22 @@ const createContactSchema = (errorDict: ContactErrorsDict) =>
     })
     .required();
 
+/**
+ * COMPONENT
+ */
 export default function Form({
   dict,
   inputBgColor,
   inputColor,
   panelBgColor,
 }: ContactProps) {
-  const { right, errors: errorDict } = dict.contact;
+  const { right, errors: errorDict, modal: modalDict } = dict.contact;
+
+  // Modal State: "idle" (hidden), "success", or "error"
+  const [modalStatus, setModalStatus] = useState<"idle" | "success" | "error">(
+    "idle",
+  );
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     register,
@@ -70,112 +96,166 @@ export default function Form({
   });
 
   const onSubmit = async (data: ContactFormSubmission) => {
+    setIsSubmitting(true);
     try {
       await sendContactEmail(data);
-      alert("Your message has been sent successfully!");
+      setModalStatus("success");
       reset();
-    } catch {
-      alert("An error occurred while sending your message. Please try again.");
+    } catch (err) {
+      setModalStatus("error");
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
+  const closeModal = () => setModalStatus("idle");
+
   return (
-    <RightColumn
-      onSubmit={handleSubmit(onSubmit)}
-      $panelbg={panelBgColor ?? inputBgColor}
-    >
-      <FormGrid>
-        <InputGroup
-          $hasError={!!errors.firstName}
-          inputbgcolor={inputBgColor}
-          inputcolor={inputColor}
-        >
-          <label htmlFor="firstName">{right.fields.firstName}</label>
-          <input {...register("firstName")} id="firstName" type="text" />
-          {errors.firstName && (
-            <ErrorLabel>{errors.firstName.message?.toString()}</ErrorLabel>
-          )}
-        </InputGroup>
+    <>
+      <RightColumn
+        onSubmit={handleSubmit(onSubmit)}
+        $panelbg={panelBgColor ?? inputBgColor}
+      >
+        <FormGrid>
+          <InputGroup
+            $hasError={!!errors.firstName}
+            inputbgcolor={inputBgColor}
+            inputcolor={inputColor}
+          >
+            <label htmlFor="firstName">{right.fields.firstName}</label>
+            <input {...register("firstName")} id="firstName" type="text" />
+            {errors.firstName && (
+              <ErrorLabel>{errors.firstName.message?.toString()}</ErrorLabel>
+            )}
+          </InputGroup>
 
-        <InputGroup
-          $hasError={!!errors.lastName}
-          inputbgcolor={inputBgColor}
-          inputcolor={inputColor}
-        >
-          <label htmlFor="lastName">{right.fields.lastName}</label>
-          <input {...register("lastName")} id="lastName" type="text" />
-          {errors.lastName && (
-            <ErrorLabel>{errors.lastName.message?.toString()}</ErrorLabel>
-          )}
-        </InputGroup>
+          <InputGroup
+            $hasError={!!errors.lastName}
+            inputbgcolor={inputBgColor}
+            inputcolor={inputColor}
+          >
+            <label htmlFor="lastName">{right.fields.lastName}</label>
+            <input {...register("lastName")} id="lastName" type="text" />
+            {errors.lastName && (
+              <ErrorLabel>{errors.lastName.message?.toString()}</ErrorLabel>
+            )}
+          </InputGroup>
 
-        <InputGroup
-          $hasError={!!errors.email}
-          inputbgcolor={inputBgColor}
-          inputcolor={inputColor}
-        >
-          <label htmlFor="email">{right.fields.email}</label>
-          <input {...register("email")} id="email" type="email" />
-          {errors.email && (
-            <ErrorLabel>{errors.email.message?.toString()}</ErrorLabel>
-          )}
-        </InputGroup>
+          <InputGroup
+            $hasError={!!errors.email}
+            inputbgcolor={inputBgColor}
+            inputcolor={inputColor}
+          >
+            <label htmlFor="email">{right.fields.email}</label>
+            <input {...register("email")} id="email" type="email" />
+            {errors.email && (
+              <ErrorLabel>{errors.email.message?.toString()}</ErrorLabel>
+            )}
+          </InputGroup>
 
-        <InputGroup
-          $hasError={!!errors.company}
-          inputbgcolor={inputBgColor}
-          inputcolor={inputColor}
-        >
-          <label htmlFor="company">{right.fields.company}</label>
-          <input {...register("company")} id="company" type="text" />
-          {errors.company && (
-            <ErrorLabel>{errors.company.message?.toString()}</ErrorLabel>
-          )}
-        </InputGroup>
+          <InputGroup
+            $hasError={!!errors.company}
+            inputbgcolor={inputBgColor}
+            inputcolor={inputColor}
+          >
+            <label htmlFor="company">{right.fields.company}</label>
+            <input {...register("company")} id="company" type="text" />
+            {errors.company && (
+              <ErrorLabel>{errors.company.message?.toString()}</ErrorLabel>
+            )}
+          </InputGroup>
 
-        <FullWidthGroup
-          $hasError={!!errors.interest}
-          inputbgcolor={inputBgColor}
-          inputcolor={inputColor}
-        >
-          <label htmlFor="interest" style={{ color: inputColor || "#e2e2e0" }}>
-            {right.fields.interest}
-          </label>
-          <select {...register("interest")} id="interest" defaultValue="">
-            <option value="" disabled>
-              {right.fields.placeholder}
-            </option>
-            {right.interestOptions.map(
-              (opt: { value: string; label: string }) => (
+          <FullWidthGroup
+            $hasError={!!errors.interest}
+            inputbgcolor={inputBgColor}
+            inputcolor={inputColor}
+          >
+            <label
+              htmlFor="interest"
+              style={{ color: inputColor || "#e2e2e0" }}
+            >
+              {right.fields.interest}
+            </label>
+            <select {...register("interest")} id="interest" defaultValue="">
+              <option value="" disabled>
+                {right.fields.placeholder}
+              </option>
+              {right.interestOptions.map((opt) => (
                 <option key={opt.value} value={opt.value}>
                   {opt.label}
                 </option>
-              ),
+              ))}
+            </select>
+            {errors.interest && (
+              <ErrorLabel>{errors.interest.message?.toString()}</ErrorLabel>
             )}
-          </select>
-          {errors.interest && (
-            <ErrorLabel>{errors.interest.message?.toString()}</ErrorLabel>
-          )}
-        </FullWidthGroup>
+          </FullWidthGroup>
 
-        <FullWidthGroup
-          $hasError={!!errors.message}
-          inputbgcolor={inputBgColor}
-          inputcolor={inputColor}
-        >
-          <label htmlFor="message" style={{ color: inputColor || "#e2e2e0" }}>
-            {right.fields.message}
-          </label>
-          <textarea {...register("message")} id="message" rows={5} />
-          {errors.message && (
-            <ErrorLabel>{errors.message.message?.toString()}</ErrorLabel>
-          )}
-        </FullWidthGroup>
-      </FormGrid>
-      <SubmitButton type="submit">{right.submit}</SubmitButton>
-    </RightColumn>
+          <FullWidthGroup
+            $hasError={!!errors.message}
+            inputbgcolor={inputBgColor}
+            inputcolor={inputColor}
+          >
+            <label htmlFor="message" style={{ color: inputColor || "#e2e2e0" }}>
+              {right.fields.message}
+            </label>
+            <textarea {...register("message")} id="message" rows={5} />
+            {errors.message && (
+              <ErrorLabel>{errors.message.message?.toString()}</ErrorLabel>
+            )}
+          </FullWidthGroup>
+        </FormGrid>
+
+        <SubmitButton type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "..." : right.submit}
+        </SubmitButton>
+      </RightColumn>
+
+      {/* MODAL OVERLAY */}
+      {modalStatus !== "idle" && (
+        <ModalOverlay onClick={closeModal}>
+          <ModalContent
+            onClick={(e) => e.stopPropagation()}
+            $isError={modalStatus === "error"}
+          >
+            <ModalTitle $isError={modalStatus === "error"}>
+              {modalStatus === "success"
+                ? modalDict.successTitle
+                : modalDict.errorTitle}
+            </ModalTitle>
+            <ModalBody>
+              {modalStatus === "success"
+                ? modalDict.successBody
+                : modalDict.errorBody}
+            </ModalBody>
+            <ModalButton onClick={closeModal}>
+              {modalStatus === "success"
+                ? modalDict.buttonClose
+                : modalDict.buttonRetry}
+            </ModalButton>
+          </ModalContent>
+        </ModalOverlay>
+      )}
+    </>
   );
 }
 
+/**
+ * ANIMATIONS
+ */
+const fadeIn = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
+const slideUp = keyframes`
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+`;
+
+/**
+ * STYLED COMPONENTS
+ */
 const RightColumn = styled.form<{ $panelbg?: string }>`
   flex: 1.2;
   width: 100%;
@@ -222,8 +302,7 @@ const InputGroup = styled.div<{
   textarea {
     background-color: ${(props) => props.inputbgcolor || "#1a1d1b"};
     border: 1px solid
-      ${(props) =>
-        props.$hasError ? "#ff4d4d" : "rgba(226, 226, 224, 0.18)"};
+      ${(props) => (props.$hasError ? "#ff4d4d" : "rgba(226, 226, 224, 0.18)")};
     border-radius: 12px;
     padding: 14px 16px;
     color: ${(props) => props.inputcolor || "#e2e2e0"};
@@ -280,13 +359,78 @@ const SubmitButton = styled.button`
   transition: all 0.2s;
   margin-top: 48px;
 
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     margin-top: 32px;
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: #7ceba8;
     transform: translateY(-2px);
+  }
+`;
+
+/**
+ * MODAL STYLES
+ */
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: ${fadeIn} 0.3s ease-out;
+`;
+
+const ModalContent = styled.div<{ $isError?: boolean }>`
+  background: #1a1d1b;
+  border: 1px solid ${(props) => (props.$isError ? "#ff4d4d" : "#99f6c4")};
+  padding: 48px;
+  border-radius: 24px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: ${slideUp} 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+`;
+
+const ModalTitle = styled.h2<{ $isError?: boolean }>`
+  color: ${(props) => (props.$isError ? "#ff4d4d" : "#99f6c4")};
+  font-size: 28px;
+  margin-bottom: 16px;
+`;
+
+const ModalBody = styled.p`
+  color: #e2e2e0;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+`;
+
+const ModalButton = styled.button`
+  background-color: #99f6c4;
+  color: #0f5238;
+  padding: 14px 40px;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #7ceba8;
+    transform: scale(1.02);
   }
 `;
