@@ -80,6 +80,13 @@ const Header = (props: { dict: any; lang: string }) => {
         >
           {props.dict.contact}
         </LinkElement>
+        <LinkElement
+          href={`/${props.lang}/blog`}
+          $active={isActive("/blog")}
+          onClick={() => setMenuOpen(false)}
+        >
+          {props.dict.blog}
+        </LinkElement>
         <LangSwitcherMobile>
           <LangLink href={redirectedPathname("en")} $active={props.lang === "en"}>
             ENG
