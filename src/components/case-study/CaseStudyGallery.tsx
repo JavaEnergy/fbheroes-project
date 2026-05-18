@@ -5,9 +5,10 @@ import styled from "styled-components";
 
 interface Props {
   images: { url: string }[];
+  imageObjectFit?: "cover" | "contain";
 }
 
-export default function CaseStudyGallery({ images }: Props) {
+export default function CaseStudyGallery({ images, imageObjectFit = "cover" }: Props) {
   const [current, setCurrent] = useState(0);
   const touchStartX = useRef<number>(0);
 
@@ -35,7 +36,7 @@ export default function CaseStudyGallery({ images }: Props) {
         >
           <Track style={{ transform: `translateX(-${current * 100}%)` }}>
             {images.map((img, i) => (
-              <Slide key={i}>
+              <Slide key={i} $objectFit={imageObjectFit}>
                 <img
                   src={`${img.url}?w=1200&q=80&auto=format&fit=crop`}
                   alt={`Gallery image ${i + 1}`}
@@ -102,14 +103,14 @@ const Track = styled.div`
   will-change: transform;
 `;
 
-const Slide = styled.div`
+const Slide = styled.div<{ $objectFit: "cover" | "contain" }>`
   min-width: 100%;
   height: 100%;
 
   img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: ${({ $objectFit }) => $objectFit};
     display: block;
   }
 `;

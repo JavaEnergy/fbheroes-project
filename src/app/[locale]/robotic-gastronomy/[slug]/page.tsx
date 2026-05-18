@@ -50,7 +50,10 @@ export default async function CaseStudyPage({ params }: Props) {
         />
       )}
       <CaseStudyVideo videoUrl={data.videoUrl ?? null} />
-      <CaseStudyGallery images={data.galleryImages ?? []} />
+      <CaseStudyGallery
+        images={data.galleryImages ?? []}
+        imageObjectFit={slug === "vipho-to-go" ? "contain" : "cover"}
+      />
       <CaseStudyConclusion
         title={dict.caseStudy.conclusionTitle}
         text={data.conclusion?.text ?? null}

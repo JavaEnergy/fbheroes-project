@@ -35,7 +35,10 @@ export default function ExpertiseSection(props: ExpertiseSectionProps) {
               key={index}
               href={`/${props.locale}/robotic-gastronomy/${slug}`}
             >
-              <CardImage src={card.image} alt={card.title} />
+              <CardImage
+            src={slug === "vipho-to-go" ? "/vipho-cover.png" : card.image}
+            alt={card.title}
+          />
               <CardPreTitle>{card.label}</CardPreTitle>
               <CardTitle>{card.title}</CardTitle>
               <p>{card.description}</p>
