@@ -3,6 +3,15 @@ import { getDictionary } from "@/lib/get-dictionary";
 import { Footer, Header } from "@/components";
 import ScrollToTopOnNavigation from "@/components/ScrollToTopOnNavigation";
 import type { Metadata } from "next";
+import { Google_Sans } from "next/font/google";
+
+const googleSans = Google_Sans({
+  subsets: ["latin"],
+  weight: "variable",
+  style: ["normal", "italic"],
+  display: "optional",
+  variable: "--font-google-sans",
+});
 
 export async function generateMetadata({
   params,
@@ -33,19 +42,7 @@ export default async function RootLayout({
   const dict = await getDictionary(locale as "en" | "de");
 
   return (
-    <html lang={locale} style={{ colorScheme: "light" }}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=optional"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang={locale} style={{ colorScheme: "light" }} className={googleSans.variable}>
       <body className="antialiased" suppressHydrationWarning>
         <ScrollToTopOnNavigation />
         <Header dict={dict.navigation} lang={locale} />

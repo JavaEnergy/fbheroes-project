@@ -10,7 +10,8 @@
       "Bash(Format-Table FullName)",
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\User\\\\Desktop\\\\fbheroes-project\\\\src\\\\app\\\\[locale]\" -Recurse)",
       "Bash(Select-Object FullName)",
-      "Bash(cp \"c:/Users/User/Desktop/fbheroes-project/IMG_2078.PNG\" \"c:/Users/User/Desktop/fbheroes-project/public/vipho-cover.png\")"
+      "Bash(cp \"c:/Users/User/Desktop/fbheroes-project/IMG_2078.PNG\" \"c:/Users/User/Desktop/fbheroes-project/public/vipho-cover.png\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); matches=[k for k in d.keys\\(\\) if 'Google' in k]; print\\(matches\\)\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\User\\Desktop\\fbheroes-project"
