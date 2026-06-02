@@ -15,7 +15,6 @@ export async function appendLeadToSheet(
 ) {
   const sheets = google.sheets({ version: "v4", auth });
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
-  const tabName = process.env.GOOGLE_SHEETS_TAB_NAME ?? "Sheet1";
   const bookingLink = process.env.BOOKING_LINK ?? "";
 
   const now = new Date().toISOString();
@@ -34,9 +33,13 @@ export async function appendLeadToSheet(
     bookingLink,
   ];
 
+  // Get the actual first sheet name from the spreadsheet to avoid tab name mismatches
+  const meta = await sheets.spreadsheets.get({ spreadsheetId });
+  const firstSheet = meta.data.sheets?.[0]?.properties?.title ?? "Sheet1";
+
   await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: `${tabName}!A:K`,
+    range: `${firstSheet}!A:K`,
     valueInputOption: "USER_ENTERED",
     requestBody: { values: [row] },
   });
