@@ -1,11 +1,14 @@
 import { getDictionary } from "@/lib/get-dictionary";
 import { getServicesPage } from "../../../../sanity/sanity-utils";
 import {
-  Collaboration,
-  ContactSection,
-  Differentiation,
   HeroSection,
-  Overview,
+  SystemcheckSection,
+  HowWeWorkSection,
+  Stufe1Section,
+  Stufe2Section,
+  Stufe3Section,
+  DreiWegeSection,
+  ContactSection,
 } from "@/components/services";
 
 interface Props {
@@ -19,12 +22,12 @@ export default async function Services({ params }: Props) {
   return (
     <>
       <HeroSection {...data.hero} dict={dict.services.integration} />
-      <Collaboration dict={dict.services.collaboration} />
-      <Overview
-        dict={dict.services.targetGroupsSection}
-        cards={data.overview.cards}
-      />
-      <Differentiation dict={dict.services.differentiation} />
+      <SystemcheckSection dict={dict.services.systemcheck} locale={locale} />
+      <HowWeWorkSection dict={dict.services.howWeWork} />
+      <Stufe1Section dict={dict.services.stufe1} />
+      <Stufe2Section dict={dict.services.stufe2} />
+      <Stufe3Section dict={dict.services.stufe3} locale={locale} />
+      <DreiWegeSection dict={dict.services.dreiWege} locale={locale} />
       <ContactSection dict={dict.services.ctaSection} />
     </>
   );

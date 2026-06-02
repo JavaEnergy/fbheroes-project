@@ -128,9 +128,9 @@ const Title = styled.h2`
 `;
 
 const Description = styled.p`
-  font-size: 17px;
+  font-size: 18px;
   color: #555;
-  line-height: 1.65;
+  line-height: 28px;
   max-width: 580px;
 
   @media (max-width: 600px) {

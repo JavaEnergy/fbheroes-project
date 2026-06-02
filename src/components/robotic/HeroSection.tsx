@@ -12,15 +12,29 @@ interface Props {
 }
 
 export default function HeroSection(props: Props) {
-  const titles = props.title.split(" ");
+  const greenWord = props.title.includes("Systemgastronomie")
+    ? "Systemgastronomie"
+    : "Systemized Hospitality";
+  const greenIdx = props.title.indexOf(greenWord);
+  const hasGreenWord = greenIdx !== -1;
+  const before = hasGreenWord ? props.title.slice(0, greenIdx).replace(/\n/g, " ").trim() : null;
+  const after = hasGreenWord ? props.title.slice(greenIdx + greenWord.length).replace(/\n/g, " ").trim() : null;
+
   return (
     <HeroContainer>
       <HeroLeft>
         <Badge>{props.badge}</Badge>
         <HeroTitle>
-          {titles[0]}
-          <br />
-          <em style={{ color: "#0F5238" }}>{titles.slice(1).join(" ")}</em>
+          {hasGreenWord ? (
+            <>
+              {before}
+              <br />
+              <em style={{ color: "#0F5238" }}>{greenWord}</em>
+              {after && <><br /><em style={{ color: "#0F5238" }}>{after}</em></>}
+            </>
+          ) : (
+            props.title
+          )}
         </HeroTitle>
         <HeroDescription>{props.description}</HeroDescription>
         <Btns>
@@ -93,15 +107,16 @@ const HeroTitle = styled.h1`
 `;
 
 const HeroDescription = styled.p`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 1.625;
+  line-height: 28px;
   font-style: italic;
   max-width: 512px;
   margin-bottom: 48px;
 
   @media (max-width: 1024px) {
-    font-size: 17px;
+    font-size: 18px;
+    line-height: 28px;
     margin-bottom: 36px;
   }
 `;

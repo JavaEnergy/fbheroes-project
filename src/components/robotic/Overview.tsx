@@ -10,14 +10,30 @@ interface Props {
   title: string;
   description: string;
   cards: CardType[];
+  titleHighlight?: string;
 }
 
-export default function Overview({ title, description, cards }: Props) {
+function renderTitle(title: string, highlight?: string) {
+  if (!highlight) return <>{title}</>;
+  const idx = title.indexOf(highlight);
+  if (idx === -1) return <>{title}</>;
+  const before = title.slice(0, idx).replace(/\n/g, " ").trim();
+  const after = title.slice(idx + highlight.length).replace(/\n/g, " ").trim();
+  return (
+    <>
+      {before && <TitleLine>{before.trim()}</TitleLine>}
+      <TitleLine><GreenWord>{highlight}</GreenWord></TitleLine>
+      {after && <TitleLine>{after.trim()}</TitleLine>}
+    </>
+  );
+}
+
+export default function Overview({ title, description, cards, titleHighlight }: Props) {
   return (
     <SectionElement>
       <Inner>
         <Header>
-          <SectionTitle>{title}</SectionTitle>
+          <SectionTitle>{renderTitle(title, titleHighlight)}</SectionTitle>
           <SectionDescription>{description}</SectionDescription>
         </Header>
         <Cards>
@@ -53,6 +69,7 @@ const Inner = styled.div`
 
 const Header = styled.div`
   margin-bottom: 64px;
+  text-align: center;
 `;
 
 const SectionTitle = styled.h2`
@@ -60,19 +77,30 @@ const SectionTitle = styled.h2`
   font-weight: 700;
   letter-spacing: -0.025em;
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
 
   @media (max-width: 768px) {
     font-size: 28px;
   }
 `;
 
+const TitleLine = styled.span`
+  display: block;
+`;
+
+const GreenWord = styled.span`
+  color: var(--primary-green);
+`;
+
 const SectionDescription = styled.p`
   font-size: 18px;
   color: #6b7280;
-  line-height: 1.6;
+  line-height: 28px;
 
   @media (max-width: 768px) {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
   }
 `;
 

@@ -63,15 +63,16 @@ const SectionElement = styled.section`
   background-color: #f4f4f2;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   @media (max-width: 1024px) {
     padding: 72px 24px;
   }
 `;
 
 const Header = styled.div`
-  max-width: 800px;
+  max-width: 935px;
   margin-bottom: 80px;
+  align-self: flex-start;
 `;
 
 const Title = styled.h2`
@@ -89,11 +90,12 @@ const Description = styled.p`
 
 const GridWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0, 390px));
   gap: 32px;
-  width: fit-content;
+  width: 100%;
+  justify-content: center;
   @media (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 390px));
     width: 100%;
   }
   @media (max-width: 768px) {

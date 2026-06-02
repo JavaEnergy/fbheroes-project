@@ -72,7 +72,7 @@ export default function LearnMoreModal({ label, dict }: Props) {
               </PillarsGrid>
 
               <OutroText>{dict.outro1}</OutroText>
-              <OutroText highlight>{dict.outro2}</OutroText>
+              <OutroText $highlight>{dict.outro2}</OutroText>
             </ModalBody>
           </Modal>
         </Overlay>
@@ -306,13 +306,13 @@ const PillarText = styled.p`
   }
 `;
 
-const OutroText = styled.p<{ highlight?: boolean }>`
+const OutroText = styled.p<{ $highlight?: boolean }>`
   font-size: 15px;
   line-height: 1.7;
-  color: ${(p) => (p.highlight ? "#0f5238" : "#3a3a3a")};
-  font-weight: ${(p) => (p.highlight ? "500" : "400")};
+  color: ${(p) => (p.$highlight ? "#0f5238" : "#3a3a3a")};
+  font-weight: ${(p) => (p.$highlight ? "500" : "400")};
   margin-top: 16px;
-  ${(p) => p.highlight && `
+  ${(p) => p.$highlight && `
     background: #f0faf4;
     border-radius: 10px;
     padding: 16px 20px;

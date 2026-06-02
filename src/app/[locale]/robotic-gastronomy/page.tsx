@@ -9,6 +9,7 @@ import {
   Overview,
   // Partner,
   PodcastSection,
+  WaysSection,
 } from "@/components/robotic";
 
 interface Props {
@@ -22,13 +23,13 @@ export default async function RoboticGastronomy({ params }: Props) {
   return (
     <>
       <HeroSection {...data.hero} dict={dict.roboticPage.hero} />
-      <Differentiation dict={dict.roboticPage.comparison} />
+      <WaysSection dict={dict.roboticPage.waysSection} />
       <Overview
         title={data.definitionCards.title}
         description={data.definitionCards.description}
         cards={data.definitionCards.cards}
+        titleHighlight={locale === "de" ? "Systemgastronomie" : "Systemized Hospitality"}
       />
-      <AdviseSection dict={dict.roboticPage.suitability} />
       <ExpertiseSection
         title={data.expertiseReferences.title}
         cards={data.expertiseReferences.cards}

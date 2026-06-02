@@ -1,7 +1,7 @@
 {
   "navigation": {
     "services": "Services",
-    "robotic_gastronomy": "Robotic Gastronomy",
+    "robotic_gastronomy": "Systeme & Robotic",
     "network": "Network",
     "about": "About Tim Plasse",
     "contact": "Contact",
@@ -21,7 +21,103 @@
     "partnerships": "Target Groups & Partnerships",
     "badge": "The F&B Heroes Cosmos",
     "subtitle": "Three pillars for sustainable market success",
-    "cta": "LEARN MORE"
+    "cta": "LEARN MORE",
+    "dasProblem": {
+      "badge": "The Problem",
+      "title": "As long as F&B depends on one person, it's your biggest risk.",
+      "description": "In most properties, the kitchen runs fine as long as the right person is at the helm. When they leave, quality drops and the search starts over. Good kitchen expertise is becoming rarer and more expensive. A single property can barely find it anymore — and rarely affords it alone. F&B determines the profitability of your property while remaining its most unreliable component."
+    },
+    "derAnsatz": {
+      "badge": "The Approach",
+      "title": "First the business model. Then the concept. Then the execution.",
+      "description": "We reverse the order. First we determine whether the F&B operation works as a business. Only then come the concept, menu, and technology.",
+      "techNote": "Technology is always part of our thinking from the start.",
+      "steps": [
+        { "number": "01", "title": "Business Model" },
+        { "number": "02", "title": "Concept" },
+        { "number": "03", "title": "Execution" }
+      ]
+    },
+    "derUnterschied": {
+      "badge": "The Difference",
+      "title": "The advantage of a chain. As an independent hotel.",
+      "description": "Chains don't have an edge over independent hotels because of their size, but because of shared knowledge and systemic structures. That's exactly what we give your property — without it giving up its independence. Every solution we develop for one client becomes available to all. We all learn from each other."
+    },
+    "soArbeitenWir": {
+      "badge": "How We Work",
+      "title": "Three steps to an F&B that works without you.",
+      "steps": [
+        {
+          "label": "Step 1",
+          "title": "F&B System Check",
+          "description": "We analyze numbers, location, and competition and recommend the right path. Fixed price, clear result.",
+          "variant": "dark"
+        },
+        {
+          "label": "Step 2",
+          "title": "Build",
+          "description": "We build the system: concept, costing, staffing model, technology, and a training system that lets you onboard new staff yourself.",
+          "variant": "mid"
+        },
+        {
+          "label": "Step 3",
+          "title": "Fractional F&B Management",
+          "description": "We manage your F&B on an ongoing basis. Weekly steering, a monthly F&B Heroes member on-site, continuous development.",
+          "variant": "light"
+        }
+      ],
+      "button": "Request F&B System Check"
+    },
+    "dreiWege": {
+      "badge": "Three Paths",
+      "title": "Three Paths, One Goal: Profitability",
+      "ways": [
+        {
+          "title": "Path 1: System Kitchen",
+          "description": "Standardized production using equipment for volatile footfall and simple menus."
+        },
+        {
+          "title": "Path 2: Hybrid",
+          "description": "System backbone for efficiency, fresh à-la-carte components for quality."
+        },
+        {
+          "title": "Path 3: Robotic",
+          "description": "24/7 automated preparation where volume and the business case support it."
+        }
+      ],
+      "footnote": "We don't sell machines. We tell you when one is worth it — and when it isn't."
+    },
+    "referenzen": {
+      "badge": "References",
+      "title": "From practice, with real operations.",
+      "items": [
+        {
+          "icon": "🏨",
+          "title": "Lieblingsplatz Hotel Group",
+          "description": "As Head of F&B Systems, we support the Lieblingsplatz hotel group in building a systemic F&B across multiple properties."
+        },
+        {
+          "icon": "🍜",
+          "title": "TAMTAM",
+          "description": "With TAMTAM in Hamburg, we run our own food court as a live reference. With our own money, not just in theory."
+        },
+        {
+          "icon": "✅",
+          "title": "25 Years of Experience",
+          "description": "25 years of experience from running our own operations and accompanying hundreds of concepts."
+        }
+      ]
+    },
+    "warum": {
+      "badge": "Why F&B Heroes",
+      "title": "Predictable costs. Access to expertise.",
+      "description": "Not every hotel can afford a full-time head chef. Our ongoing Fractional F&B Management costs a fraction of that, secures quality through a system run by experienced head chefs and operations managers. We don't sell you hardware or food. Our recommendation stays neutral and aligned with the success of your business case."
+    },
+    "schnellcheck": {
+      "title": "Which path fits your property?",
+      "description": "Find out in 2 minutes whether a system kitchen, hybrid, or robotic concept suits your location.",
+      "button": "Request F&B System Check"
+    }
   },
   "homeStrategy": {
     "title": "The Strategic Approach",
@@ -29,7 +125,11 @@
     "author": "Tim Plasse",
     "description": "F&B Heroes focuses on the economic basis to ensure long-term stability in volatile markets.",
     "stepLabel": "Step",
-    "steps": ["The Business Model", "The Concept", "The Implementation"]
+    "steps": [
+      "The Business Model",
+      "The Concept",
+      "The Implementation"
+    ]
   },
   "homeInnovation": {
     "subtitle": "Innovation & Robotics",
@@ -50,9 +150,20 @@
     ]
   },
   "services": {
+    "systemcheck": {
+      "badge": "THE STARTING POINT",
+      "title": "The F&B System Check",
+      "description": "Every collaboration starts with the System Check. We analyze your location, the numbers, and the competition to make the right path decision. The result is a clear recommendation: which system leads to success at your location?",
+      "items": [
+        "On-site inventory & analysis",
+        "Profitability calculation & business case",
+        "Justified path recommendation (1 of 3)"
+      ],
+      "button": "Request F&B System Check"
+    },
     "integration": {
-      "title": "Strategic Integration",
-      "description": "Seamless integration into existing teams to accelerate innovation processes.",
+      "title": "Operational Independence",
+      "description": "Qualität, die nicht davon abhangt, wer am Herd steht. Wir schaffen Systeme, die den Betrieb sicherstellen.",
       "expertise": "EXPERTISE & METHOD"
     },
     "collaboration": {
@@ -69,7 +180,10 @@
       "projectBased": {
         "title": "Project-based",
         "description": "Targeted support for specific milestones such as new openings, new developments, or the technical implementation of robotics in gastronomy.",
-        "features": ["Clear scope of services", "Defined timeframe & budget"]
+        "features": [
+          "Clear scope of services",
+          "Defined timeframe & budget"
+        ]
       }
     },
     "targetGroupsSection": {
@@ -95,15 +209,132 @@
         ]
       }
     },
+    "howWeWork": {
+      "title": "How We Work Together",
+      "steps": [
+        {
+          "number": "Stage 1: Analysis",
+          "title": "The F&B System Check",
+          "description": "The F&B System Check with a definitive path recommendation."
+        },
+        {
+          "number": "Stage 2: Build",
+          "title": "The Build",
+          "description": "One-time build phase including concept, costing, staffing model, technology, and training system."
+        },
+        {
+          "number": "Stage 3: Operations",
+          "title": "Fractional F&B Management",
+          "description": "Ongoing management as a subscription with weekly steering and a monthly F&B Heroes specialist on-site."
+        }
+      ]
+    },
+    "stufe1": {
+      "title": "Stage 1: The F&B System Check",
+      "description": "In hospitality, kitchen know-how is the biggest weak point. We solve this through division of labor: the <strong>system</strong> keeps operations safe, our Fractional F&B Manager keeps them consistent.",
+      "whatsDoneTitle": "What Gets Done",
+      "whatsDone": [
+        {
+          "title": "Preparation Before the Visit",
+          "text": "We request a compact dataset (P&L, food cost, labor costs, menus, footfall data). The analysis starts before we arrive on-site."
+        },
+        {
+          "title": "On-Site, One Day",
+          "text": "Walkthrough of kitchen and outlets, workflow analysis, and conversations with management. We capture the picture that numbers alone cannot show."
+        },
+        {
+          "title": "Evaluation",
+          "text": "Condensed into a diagnosis including benchmarking, location analysis, and risk check. The result is the path recommendation and initial profitability calculation."
+        }
+      ],
+      "youGetTitle": "What You Receive",
+      "youGetIntro": "A written results document and a meeting to go through it together. The document includes:",
+      "youGetItems": [
+        "The status quo — where F&B stands economically, based on the key ratios.",
+        "Weaknesses and risks, including personnel dependency.",
+        "The path recommendation — system kitchen, hybrid, or robotic — with reasoning.",
+        "An initial profitability calculation with achievable food cost ratio, staffing logic, and rough investment framework.",
+        "An initial concept direction.",
+        "The next step: indicative framework for the build phase."
+      ],
+      "youGetFooter": "You leave the check with a decision basis, not just a feeling.",
+      "notIncludedTitle": "What Is Not Included",
+      "notIncludedText": "No finished concept, no recipes, no detailed costing, no detailed supplier or technology selection, no implementation. That is Stage 2, the build. This clear boundary makes the transition to the build the logical next step."
+    },
+    "stufe2": {
+      "title": "Stage 2: The Build",
+      "description": "We handle the complete development of your F&B system, from the first idea to turnkey handover. The result is a standardized, predictably profitable operation.",
+      "cards": [
+        { "title": "F&B Concept", "text": "Menu development tailored to the chosen system (System Kitchen, Hybrid, Robotic)." },
+        { "title": "Production System", "text": "Sourcing of suppliers and convenience products for maximum efficiency." },
+        { "title": "Costing", "text": "Recipe development and costing for all food and beverage items." },
+        { "title": "Staffing Model", "text": "Definition of roles, shift schedules, and operational requirements." },
+        { "title": "Technology & Software", "text": "Selection and implementation of the right kitchen technology and software." },
+        { "title": "System Manual", "text": "Creation of all necessary documents for smooth day-to-day operations." }
+      ],
+      "trainingTitle": "In-House Training as Standard",
+      "trainingDesc": "A system is only as good as the people running it. We implement a training system that allows you to onboard new staff quickly and efficiently.",
+      "trainingItems": [
+        "Station-specific SOPs & work instructions",
+        "Illustrated recipe & production cards",
+        "Train-the-trainer logic for your team"
+      ],
+      "quote": "\"The ability to make new staff productive quickly is the decisive competitive advantage in today's hospitality industry.\""
+    },
+    "stufe3": {
+      "title": "Stage 3: Fractional F&B Management",
+      "description": "In hospitality, kitchen know-how is the biggest weak point. We solve this through division of labor: the <strong>system</strong> keeps operations safe, our Fractional F&B Manager keeps them consistent.",
+      "accessTitle": "Access Instead of Full-Time Employment",
+      "accessDesc": "You subscribe to access an F&B manager who knows and steers your system. Independent hotels benefit from the same systemic advantages as large chains.",
+      "features": [
+        { "title": "Weekly Strategy Calls", "description": "Ongoing optimization and steering." },
+        { "title": "Coordination with Kitchen Management", "description": "A direct sparring partner for your on-site team." },
+        { "title": "Monthly Head Chef / Ops Manager On-Site", "description": "Quality control and fine-tuning in operations." },
+        { "title": "Access to the Knowledge Pool", "description": "Benefit from the best-practice network of F&B Heroes." }
+      ],
+      "advantageTitle": "The System Advantage",
+      "advantageDesc": "We bring the structure and efficiency of system gastronomy to independent hotels. That means reliable quality, predictable costs, and independence from the tight labor market.",
+      "button": "Request F&B System Check"
+    },
+    "dreiWege": {
+      "title": "Three Paths, One Goal: Profitability",
+      "description": "Which system your property gets is the result of the System Check. Three paths are possible — the business case decides which one fits.",
+      "ways": [
+        {
+          "icon": "🏭",
+          "title": "System Kitchen",
+          "description": "Maximum standardization through systemic production and state-of-the-art kitchen technology. Ideal for volatile footfall and a thin labor market.",
+          "focusLabel": "Focus",
+          "focus": "Standardization & Efficiency"
+        },
+        {
+          "icon": "🍽️",
+          "title": "Hybrid",
+          "description": "Combination of a system backbone and à-la-carte components. Perfect for hotels with restaurant ambitions despite labor cost pressure.",
+          "focusLabel": "Focus",
+          "focus": "Freshness & Process Reliability"
+        },
+        {
+          "icon": "🤖",
+          "title": "Robotic",
+          "description": "Automated preparation and kitchen solutions. The answer to 24/7 demand and acute staff shortages.",
+          "focusLabel": "Focus",
+          "focus": "Machines take over entire processes"
+        }
+      ],
+      "footnote": "The full details on System Kitchen, Hybrid, and Robotic are explained in our",
+      "footnoteLink": "Systems & Robotic",
+      "footnoteLinkHref": "/robotic-gastronomy"
+    },
     "ctaSection": {
-      "title": "Optimization of F&B Strategy",
-      "description": "In a 30-minute initial consultation, potentials and objectives for a collaboration will be discussed.",
-      "button": "Request initial consultation"
+      "title": "Ready for the System Check?",
+      "description": "Let us use the F&B System Check to define how we set up your F&B to be independent of individuals and reliably profitable.",
+      "button": "Request F&B System Check"
     }
   },
   "roboticPage": {
     "hero": {
-      "contactBtn": "Contact me",
+      "contactBtn": "F&B-Systemcheck anfragen",
       "learnMoreBtn": "Learn more",
       "statsText": "Process accuracy through my integrated system control.",
       "modal": {
@@ -180,7 +411,10 @@
       "brand": "VEND Robotic",
       "title": "My Implementation Partner",
       "description": "F&B Heroes develops the strategy and business model, while VEND Robotic delivers the technical implementation, creating turnkey solutions together.",
-      "features": ["In-house software control", "Maintenance & 24/7 Support"],
+      "features": [
+        "In-house software control",
+        "Maintenance & 24/7 Support"
+      ],
       "link": "Switch to VEND Robotic",
       "liveDemo": {
         "label": "LIVE DEMO",
@@ -197,6 +431,49 @@
       "description": "Take my free Robotic Gastro Check to find out in 5 minutes if your concept can benefit from my automation.",
       "button": "Start my Robotic Gastro Check",
       "disclaimer": "Non-binding & free • Your individual evaluation"
+    },
+    "waysSection": {
+      "ways": [
+        {
+          "number": "01",
+          "tag": "Standardisation\nwithout Robotics",
+          "title": "Way 1: System Kitchen",
+          "description": "A system kitchen is a fully standardised kitchen in which workflows, recipes and processes are defined in clear standards (SOPs). The result is consistent quality, predictable costs and low dependency on individuals, because knowledge lives in the system and not just in individual heads.",
+          "whenUseful": {
+            "label": "When it makes sense",
+            "text": "For properties with volatile business that want to standardise quality and profitability."
+          },
+          "whenNot": {
+            "label": "When it does not",
+            "text": "When structural and process changes are not desired."
+          }
+        },
+        {
+          "number": "02",
+          "tag": "Bridge to\nSystem Kitchen",
+          "title": "Way 2: Hybrid Kitchen",
+          "description": "A hybrid kitchen combines the standardised processes of a system kitchen with targeted à-la-carte elements. Individual, recurring production processes are systematised through technology and standards, while the team focuses on individual components, quality and the guest experience. It is the bridge between classic à-la-carte and system kitchen.",
+          "whenUseful": {
+            "label": "When it makes sense",
+            "text": "When staff is scarce but a full system kitchen is not yet economically or conceptually feasible."
+          },
+          "whenNot": {
+            "label": "When it does not",
+            "text": "When the infrastructure does not allow for adaptation."
+          }
+        },
+        {
+          "number": "03",
+          "tag": "Full\nAutomation",
+          "title": "Way 3: Robotic",
+          "description": "Robotic means the consistent implementation of automation for 24/7 requirements. Robots handle food preparation fully automatically, embedded in a well-thought-out business model with integrated processes. Important: robotics is not an end in itself or a gimmick, but a lever for productivity and scalability.",
+          "whenUseful": {
+            "label": "When it makes sense",
+            "text": "For locations with constant volume and 24/7 demand for supplying employees and guests."
+          },
+          "whenNot": null
+        }
+      ]
     }
   },
   "network": {
@@ -209,9 +486,9 @@
       "button": "Get in touch"
     },
     "bottomCTA": {
-      "title": "Ready for the next step?",
-      "description": "In an initial conversation, goals are clarified and those experts identified who will lead the project to success. F&B Heroes acts as a central network partner.",
-      "button": "Request initial consultation"
+      "title": "Ready for the F&B System Check?",
+      "description": "Start with a thorough analysis of your potential. We identify the right levers and the right expert team for your success.",
+      "button": "Request F&B System Check"
     }
   },
   "about": {
@@ -285,10 +562,22 @@
         "placeholder": "Please select..."
       },
       "interestOptions": [
-        { "value": "robotics", "label": "Robotic Gastronomy" },
-        { "value": "strategy", "label": "Strategy & Consulting" },
-        { "value": "network", "label": "Network Partner" },
-        { "value": "consultation", "label": "consultation" }
+        {
+          "value": "robotics",
+          "label": "Robotic Gastronomy"
+        },
+        {
+          "value": "strategy",
+          "label": "Strategy & Consulting"
+        },
+        {
+          "value": "network",
+          "label": "Network Partner"
+        },
+        {
+          "value": "consultation",
+          "label": "consultation"
+        }
       ],
       "submit": "Submit Inquiry"
     },
@@ -309,6 +598,26 @@
       "errorBody": "Unfortunately, your message could not be transmitted. Please try again or contact us directly.",
       "buttonClose": "Close",
       "buttonRetry": "Try Again"
+    },
+    "steps": {
+      "items": [
+        {
+          "number": "1",
+          "label": "Free Initial Consultation"
+        },
+        {
+          "number": "2",
+          "label": "F&B System Check"
+        },
+        {
+          "number": "3",
+          "label": "Implementation"
+        },
+        {
+          "number": "4",
+          "label": "Fractional F&B Management"
+        }
+      ]
     }
   }
 }

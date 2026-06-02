@@ -1,6 +1,10 @@
 export { default } from "./HeroSection";
-export { default as Steps } from "./Steps";
-export { default as Partners } from "./Partners";
-export { default as Robotic } from "./Robotic";
-export { default as BottomCards } from "./BottomCards";
 export { default as ContactForm } from "./ContactForm";
+export { default as DasProblemSection } from "./DasProblemSection";
+export { default as DerAnsatzSection } from "./DerAnsatzSection";
+export { default as DerUnterschiedSection } from "./DerUnterschiedSection";
+export { default as SoArbeitenWirSection } from "./SoArbeitenWirSection";
+export { default as DreiWegeHomeSection } from "./DreiWegeHomeSection";
+export { default as ReferenzenSection } from "./ReferenzenSection";
+export { default as WarumSection } from "./WarumSection";
+export { default as SchnellcheckSection } from "./SchnellcheckSection";

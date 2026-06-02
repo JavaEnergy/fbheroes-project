@@ -61,10 +61,10 @@ const Description = styled.p`
   font-size: 36px;
   line-height: 1.6;
   font-weight: 700;
-  width: 80%;
+  max-width: 900px;
   text-align: center;
   @media (max-width: 1024px) {
-    width: 100%;
+    max-width: 100%;
   }
 `;
 
@@ -72,9 +72,9 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  width: 90%;
+  max-width: 1100px;
   @media (max-width: 1024px) {
-    width: 100%;
+    max-width: 100%;
   }
 
   @media (max-width: 968px) {

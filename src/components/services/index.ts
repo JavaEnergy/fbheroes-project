@@ -1,4 +1,10 @@
 export { default as HeroSection } from "./HeroSection";
+export { default as SystemcheckSection } from "./SystemcheckSection";
+export { default as HowWeWorkSection } from "./HowWeWorkSection";
+export { default as Stufe1Section } from "./Stufe1Section";
+export { default as Stufe2Section } from "./Stufe2Section";
+export { default as Stufe3Section } from "./Stufe3Section";
+export { default as DreiWegeSection } from "./DreiWegeSection";
 export { default as Collaboration } from "./Collaboration";
 export { default as Overview } from "./Overview";
 export { default as Differentiation } from "./Differentiation";
