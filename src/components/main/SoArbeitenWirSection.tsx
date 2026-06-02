@@ -10,8 +10,15 @@ interface Step {
   variant: "dark" | "mid" | "light";
 }
 
+interface DictStep {
+  label: string;
+  title: string;
+  description: string;
+  variant: string;
+}
+
 interface Props {
-  dict: { badge: string; title: string; steps: Step[]; button: string };
+  dict: { badge: string; title: string; steps: DictStep[]; button: string };
   locale: string;
 }
 
@@ -31,7 +38,8 @@ export default function SoArbeitenWirSection({ dict, locale }: Props) {
         </Header>
         <Grid>
           {dict.steps.map((step) => {
-            const s = bgMap[step.variant];
+            const variant = (step.variant as Step["variant"]) in bgMap ? (step.variant as Step["variant"]) : "dark";
+            const s = bgMap[variant];
             return (
               <Card key={step.label} style={{ backgroundColor: s.bg, color: s.color }}>
                 <StepLabel style={{ color: s.labelColor }}>{step.label}</StepLabel>
