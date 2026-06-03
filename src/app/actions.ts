@@ -12,7 +12,7 @@ import { headers } from "next/headers";
 export async function sendContactEmail(formData: ContactFormSubmission) {
   try {
     if (!CONTACT_INTEREST_VALUES.includes(formData.interest)) {
-      return { success: false, error: "Invalid interest selection." };
+      return { success: false, error: "Ungültige Auswahl." };
     }
 
     const sanitized: ContactFormSubmission = {
@@ -35,14 +35,14 @@ export async function sendContactEmail(formData: ContactFormSubmission) {
           from: `"F&B Heroes Web" <${process.env.SMTP_USER}>`,
           to: process.env.CONTACT_RECEIVER,
           replyTo: sanitized.email,
-          subject: `New Inquiry from ${sanitized.firstName} ${sanitized.lastName}`,
+          subject: `Neue Anfrage von ${sanitized.firstName} ${sanitized.lastName}`,
           html: contactEmailTemplate(sanitized),
         }),
 
         transporter.sendMail({
           from: `"F&B Heroes" <${process.env.SMTP_USER}>`,
           to: sanitized.email,
-          subject: "Thank you for your message — F&B Heroes",
+          subject: "Vielen Dank für Ihre Nachricht - F&B Heroes",
           html: confirmationEmailTemplate(
             sanitized,
             process.env.BOOKING_LINK ?? "",
@@ -65,12 +65,12 @@ export async function sendContactEmail(formData: ContactFormSubmission) {
       confirmMailResult.status === "rejected";
 
     if (mailFailed) {
-      return { success: false, error: "Failed to send email." };
+      return { success: false, error: "E-Mail konnte nicht gesendet werden." };
     }
 
     return { success: true };
   } catch (error) {
     console.error("Contact action error:", error);
-    return { success: false, error: "Failed to send email." };
+    return { success: false, error: "E-Mail konnte nicht gesendet werden." };
   }
 }

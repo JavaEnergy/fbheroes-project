@@ -1,8 +1,8 @@
 export const CONTACT_INTEREST_OPTIONS = [
-  { value: "robotics", label: "Robotic Gastronomy" },
-  { value: "strategy", label: "Strategy & Consulting" },
-  { value: "network", label: "Network Partner" },
-  { value: "consultation", label: "consultation" },
+  { value: "robotics", label: "Robotik-Gastronomie" },
+  { value: "strategy", label: "Strategie & Beratung" },
+  { value: "network", label: "Netzwerk-Partner" },
+  { value: "consultation", label: "Erstgespräch" },
 ] as const;
 
 export const CONTACT_INTEREST_VALUES = CONTACT_INTEREST_OPTIONS.map(
