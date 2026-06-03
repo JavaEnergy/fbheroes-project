@@ -130,8 +130,9 @@ const CreatorLink = styled.a`
   text-decoration: underline;
 `;
 
-const GroupTitle = styled.h3`
+const GroupTitle = styled.p`
   color: "#0f5238";
   font-size: 12px;
   font-weight: 900;
+  margin: 0;
 `;

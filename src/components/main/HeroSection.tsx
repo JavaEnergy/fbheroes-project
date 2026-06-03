@@ -35,11 +35,10 @@ export default function HeroSection(props: Props) {
           <NextImage
             src={props.image}
             alt="Hero Image"
-            width={600}
-            height={700}
-            priority
+            fill
+            preload
             sizes="(max-width: 1024px) 100vw, 30vw"
-            style={{ width: "100%", height: "auto", borderRadius: "16px" }}
+            style={{ objectFit: "cover" }}
           />
         </HeroImageWrapper>
         <Stats>
@@ -114,6 +113,11 @@ const ContactLink = styled(Link)`
 
 const HeroImageWrapper = styled.div`
   width: 70%;
+  aspect-ratio: 6 / 7;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+
   @media (max-width: 1024px) {
     width: 100%;
   }
