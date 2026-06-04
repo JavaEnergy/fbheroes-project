@@ -1,4 +1,3 @@
-import PotentialCheck from "@/components/PotentialSection";
 import { ContactForm, HeroSection, ProcessSteps } from "@/components/contact";
 import { getDictionary } from "@/lib/get-dictionary";
 
@@ -14,10 +13,6 @@ export default async function Contact({ params }: Props) {
       <HeroSection dict={dict} />
       <ProcessSteps dict={dict.contact.steps} />
       <ContactForm dict={dict} />
-      <PotentialCheck
-        dict={dict.contact.potentialCheck}
-        image="/Container.png"
-      />
     </>
   );
 }
