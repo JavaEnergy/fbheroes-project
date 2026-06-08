@@ -1,7 +1,4 @@
-import {
-  getContactInterestLabel,
-  type ContactFormSubmission,
-} from "@/lib/contact-interest";
+import { type ContactFormSubmission } from "@/lib/contact-interest";
 
 const escapeHtml = (value: string) =>
   value
@@ -12,24 +9,23 @@ const escapeHtml = (value: string) =>
     .replace(/'/g, "&#039;");
 
 export const contactEmailTemplate = (data: ContactFormSubmission) => {
-  const { firstName, lastName, email, company, interest, message } = data;
-  const fullName = escapeHtml(`${firstName} ${lastName}`);
-  const safeEmail = escapeHtml(email);
-  const safeCompany = escapeHtml(company);
-  const safeInterest = escapeHtml(getContactInterestLabel(interest));
-  const safeMessage = escapeHtml(message).replace(/\n/g, "<br />");
+  const safeName = escapeHtml(data.name);
+  const safeEmail = escapeHtml(data.email);
+  const safeHotel = escapeHtml(data.hotel);
+  const safeLocations = escapeHtml(data.locations);
+  const safeMessage = escapeHtml(data.message).replace(/\n/g, "<br />");
 
   return `
     <div style="font-family: sans-serif; max-width: 600px; color: #1a1d1b;">
       <h2 style="color: #0f5238;">Neue Anfrage: F&amp;B Heroes</h2>
       <p>Über das Kontaktformular der Website ist eine neue Nachricht eingegangen.</p>
       <hr />
-      <p><strong>Name:</strong> ${fullName}</p>
+      <p><strong>Name:</strong> ${safeName}</p>
       <p><strong>E-Mail:</strong> ${safeEmail}</p>
-      <p><strong>Unternehmen:</strong> ${safeCompany}</p>
-      <p><strong>Interesse:</strong> ${safeInterest}</p>
+      <p><strong>Hotel oder Gruppe:</strong> ${safeHotel}</p>
+      <p><strong>Anzahl Standorte:</strong> ${safeLocations}</p>
       <br />
-      <p><strong>Nachricht:</strong></p>
+      <p><strong>Anliegen:</strong></p>
       <div style="background: #f4f4f2; padding: 20px; border-radius: 8px;">
         ${safeMessage}
       </div>
@@ -41,8 +37,7 @@ export const confirmationEmailTemplate = (
   data: ContactFormSubmission,
   bookingLink: string,
 ) => {
-  const { firstName } = data;
-  const safeFirstName = escapeHtml(firstName);
+  const safeName = escapeHtml(data.name);
   const safeBookingLink = escapeHtml(bookingLink);
   const bookingButton = safeBookingLink
     ? `
@@ -72,7 +67,7 @@ export const confirmationEmailTemplate = (
         <h1 style="color: #99f6c4; margin: 0; font-size: 28px;">F&amp;B Heroes</h1>
       </div>
       <div style="background: #f4f4f2; padding: 40px; border-radius: 0 0 12px 12px;">
-        <h2 style="color: #0f5238; margin-top: 0;">Vielen Dank, ${safeFirstName}!</h2>
+        <h2 style="color: #0f5238; margin-top: 0;">Vielen Dank, ${safeName}!</h2>
         <p style="font-size: 16px; line-height: 1.6; color: #333;">
           Wir haben Ihre Nachricht erhalten und melden uns so schnell wie möglich bei Ihnen.
         </p>

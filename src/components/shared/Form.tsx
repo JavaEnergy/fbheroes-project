@@ -6,28 +6,24 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { sendContactEmail } from "@/app/actions";
-import {
-  CONTACT_INTEREST_VALUES,
-  type ContactFormSubmission,
-} from "@/lib/contact-interest";
+import { type ContactFormSubmission } from "@/lib/contact-interest";
 
-/**
- * PROPS & TYPES
- */
 interface ContactProps {
   dict: {
     contact: {
       right: {
         fields: {
-          firstName: string;
-          lastName: string;
+          name: string;
+          hotel: string;
           email: string;
-          company: string;
-          interest: string;
+          locations: string;
           message: string;
-          placeholder: string;
+          namePlaceholder: string;
+          hotelPlaceholder: string;
+          emailPlaceholder: string;
+          locationsPlaceholder: string;
+          messagePlaceholder: string;
         };
-        interestOptions: Array<{ value: string; label: string }>;
         submit: string;
       };
       errors: {
@@ -49,59 +45,34 @@ interface ContactProps {
   panelBgColor?: string;
 }
 
-type ContactErrorsDict = ContactProps["dict"]["contact"]["errors"];
+const createSchema = (e: ContactProps["dict"]["contact"]["errors"]) =>
+  yup.object({
+    name: yup.string().required(e.required),
+    email: yup.string().email(e.email).required(e.required),
+    hotel: yup.string().required(e.required),
+    locations: yup.string().required(e.required),
+    message: yup.string().required(e.required),
+  });
 
-/**
- * VALIDATION SCHEMA
- */
-const createContactSchema = (errorDict: ContactErrorsDict) =>
-  yup
-    .object({
-      firstName: yup.string().required(errorDict.required),
-      lastName: yup.string().required(errorDict.required),
-      email: yup.string().email(errorDict.email).required(errorDict.required),
-      company: yup.string().required(errorDict.required),
-      interest: yup
-        .string()
-        .oneOf([...CONTACT_INTEREST_VALUES], errorDict.required)
-        .required(errorDict.required),
-      message: yup.string().required(errorDict.required),
-    })
-    .required();
-
-/**
- * COMPONENT
- */
-export default function Form({
-  dict,
-  inputBgColor,
-  inputColor,
-  panelBgColor,
-}: ContactProps) {
+export default function Form({ dict, inputBgColor, inputColor, panelBgColor }: ContactProps) {
   const { right, errors: errorDict, modal: modalDict } = dict.contact;
-
-  // Modal State: "idle" (hidden), "success", or "error"
-  const [modalStatus, setModalStatus] = useState<"idle" | "success" | "error">(
-    "idle",
-  );
+  const [modalStatus, setModalStatus] = useState<"idle" | "success" | "error">("idle");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<ContactFormSubmission>({
-    resolver: yupResolver(createContactSchema(errorDict)),
-  });
+  const { register, handleSubmit, reset, formState: { errors } } =
+    useForm<ContactFormSubmission>({ resolver: yupResolver(createSchema(errorDict)) });
 
   const onSubmit = async (data: ContactFormSubmission) => {
     setIsSubmitting(true);
     try {
-      await sendContactEmail(data);
-      setModalStatus("success");
-      reset();
-    } catch (err) {
+      const result = await sendContactEmail(data);
+      if (result.success) {
+        setModalStatus("success");
+        reset();
+      } else {
+        setModalStatus("error");
+      }
+    } catch {
       setModalStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -112,97 +83,36 @@ export default function Form({
 
   return (
     <>
-      <RightColumn
-        onSubmit={handleSubmit(onSubmit)}
-        $panelbg={panelBgColor ?? inputBgColor}
-      >
+      <RightColumn onSubmit={handleSubmit(onSubmit)} $panelbg={panelBgColor ?? inputBgColor}>
         <FormGrid>
-          <InputGroup
-            $hasError={!!errors.firstName}
-            inputbgcolor={inputBgColor}
-            inputcolor={inputColor}
-          >
-            <label htmlFor="firstName">{right.fields.firstName}</label>
-            <input {...register("firstName")} id="firstName" type="text" />
-            {errors.firstName && (
-              <ErrorLabel>{errors.firstName.message?.toString()}</ErrorLabel>
-            )}
+          <InputGroup $hasError={!!errors.name} inputbgcolor={inputBgColor} inputcolor={inputColor}>
+            <label htmlFor="name">{right.fields.name}</label>
+            <input {...register("name")} id="name" type="text" placeholder={right.fields.namePlaceholder} />
+            {errors.name && <ErrorLabel>{errors.name.message}</ErrorLabel>}
           </InputGroup>
 
-          <InputGroup
-            $hasError={!!errors.lastName}
-            inputbgcolor={inputBgColor}
-            inputcolor={inputColor}
-          >
-            <label htmlFor="lastName">{right.fields.lastName}</label>
-            <input {...register("lastName")} id="lastName" type="text" />
-            {errors.lastName && (
-              <ErrorLabel>{errors.lastName.message?.toString()}</ErrorLabel>
-            )}
+          <InputGroup $hasError={!!errors.hotel} inputbgcolor={inputBgColor} inputcolor={inputColor}>
+            <label htmlFor="hotel">{right.fields.hotel}</label>
+            <input {...register("hotel")} id="hotel" type="text" placeholder={right.fields.hotelPlaceholder} />
+            {errors.hotel && <ErrorLabel>{errors.hotel.message}</ErrorLabel>}
           </InputGroup>
 
-          <InputGroup
-            $hasError={!!errors.email}
-            inputbgcolor={inputBgColor}
-            inputcolor={inputColor}
-          >
+          <InputGroup $hasError={!!errors.email} inputbgcolor={inputBgColor} inputcolor={inputColor}>
             <label htmlFor="email">{right.fields.email}</label>
-            <input {...register("email")} id="email" type="email" />
-            {errors.email && (
-              <ErrorLabel>{errors.email.message?.toString()}</ErrorLabel>
-            )}
+            <input {...register("email")} id="email" type="email" placeholder={right.fields.emailPlaceholder} />
+            {errors.email && <ErrorLabel>{errors.email.message}</ErrorLabel>}
           </InputGroup>
 
-          <InputGroup
-            $hasError={!!errors.company}
-            inputbgcolor={inputBgColor}
-            inputcolor={inputColor}
-          >
-            <label htmlFor="company">{right.fields.company}</label>
-            <input {...register("company")} id="company" type="text" />
-            {errors.company && (
-              <ErrorLabel>{errors.company.message?.toString()}</ErrorLabel>
-            )}
+          <InputGroup $hasError={!!errors.locations} inputbgcolor={inputBgColor} inputcolor={inputColor}>
+            <label htmlFor="locations">{right.fields.locations}</label>
+            <input {...register("locations")} id="locations" type="text" placeholder={right.fields.locationsPlaceholder} />
+            {errors.locations && <ErrorLabel>{errors.locations.message}</ErrorLabel>}
           </InputGroup>
 
-          <FullWidthGroup
-            $hasError={!!errors.interest}
-            inputbgcolor={inputBgColor}
-            inputcolor={inputColor}
-          >
-            <label
-              htmlFor="interest"
-              style={{ color: inputColor || "#e2e2e0" }}
-            >
-              {right.fields.interest}
-            </label>
-            <select {...register("interest")} id="interest" defaultValue="">
-              <option value="" disabled>
-                {right.fields.placeholder}
-              </option>
-              {right.interestOptions.map((opt) => (
-                <option key={opt.value} value={opt.value}>
-                  {opt.label}
-                </option>
-              ))}
-            </select>
-            {errors.interest && (
-              <ErrorLabel>{errors.interest.message?.toString()}</ErrorLabel>
-            )}
-          </FullWidthGroup>
-
-          <FullWidthGroup
-            $hasError={!!errors.message}
-            inputbgcolor={inputBgColor}
-            inputcolor={inputColor}
-          >
-            <label htmlFor="message" style={{ color: inputColor || "#e2e2e0" }}>
-              {right.fields.message}
-            </label>
-            <textarea {...register("message")} id="message" rows={5} />
-            {errors.message && (
-              <ErrorLabel>{errors.message.message?.toString()}</ErrorLabel>
-            )}
+          <FullWidthGroup $hasError={!!errors.message} inputbgcolor={inputBgColor} inputcolor={inputColor}>
+            <label htmlFor="message" style={{ color: inputColor || "#e2e2e0" }}>{right.fields.message}</label>
+            <textarea {...register("message")} id="message" rows={5} placeholder={right.fields.messagePlaceholder} />
+            {errors.message && <ErrorLabel>{errors.message.message}</ErrorLabel>}
           </FullWidthGroup>
         </FormGrid>
 
@@ -211,27 +121,17 @@ export default function Form({
         </SubmitButton>
       </RightColumn>
 
-      {/* MODAL OVERLAY */}
       {modalStatus !== "idle" && (
         <ModalOverlay onClick={closeModal}>
-          <ModalContent
-            onClick={(e) => e.stopPropagation()}
-            $isError={modalStatus === "error"}
-          >
+          <ModalContent onClick={(e) => e.stopPropagation()} $isError={modalStatus === "error"}>
             <ModalTitle $isError={modalStatus === "error"}>
-              {modalStatus === "success"
-                ? modalDict.successTitle
-                : modalDict.errorTitle}
+              {modalStatus === "success" ? modalDict.successTitle : modalDict.errorTitle}
             </ModalTitle>
             <ModalBody>
-              {modalStatus === "success"
-                ? modalDict.successBody
-                : modalDict.errorBody}
+              {modalStatus === "success" ? modalDict.successBody : modalDict.errorBody}
             </ModalBody>
             <ModalButton onClick={closeModal}>
-              {modalStatus === "success"
-                ? modalDict.buttonClose
-                : modalDict.buttonRetry}
+              {modalStatus === "success" ? modalDict.buttonClose : modalDict.buttonRetry}
             </ModalButton>
           </ModalContent>
         </ModalOverlay>
@@ -240,22 +140,9 @@ export default function Form({
   );
 }
 
-/**
- * ANIMATIONS
- */
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
-`;
+const fadeIn = keyframes`from { opacity: 0; } to { opacity: 1; }`;
+const slideUp = keyframes`from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; }`;
 
-const slideUp = keyframes`
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-`;
-
-/**
- * STYLED COMPONENTS
- */
 const RightColumn = styled.form<{ $panelbg?: string }>`
   flex: 1.2;
   width: 100%;
@@ -263,7 +150,6 @@ const RightColumn = styled.form<{ $panelbg?: string }>`
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   background-color: ${(props) => props.$panelbg || "transparent"};
-
   @media (max-width: 768px) {
     padding: 0;
     border: none;
@@ -276,17 +162,10 @@ const FormGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-
-  @media (max-width: 640px) {
-    grid-template-columns: 1fr;
-  }
+  @media (max-width: 640px) { grid-template-columns: 1fr; }
 `;
 
-const InputGroup = styled.div<{
-  $hasError?: boolean;
-  inputbgcolor?: string;
-  inputcolor?: string;
-}>`
+const InputGroup = styled.div<{ $hasError?: boolean; inputbgcolor?: string; inputcolor?: string }>`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -297,12 +176,9 @@ const InputGroup = styled.div<{
     font-weight: 500;
   }
 
-  input,
-  select,
-  textarea {
+  input, textarea {
     background-color: ${(props) => props.inputbgcolor || "#1a1d1b"};
-    border: 1px solid
-      ${(props) => (props.$hasError ? "#ff4d4d" : "rgba(226, 226, 224, 0.18)")};
+    border: 1px solid ${(props) => (props.$hasError ? "#ff4d4d" : "rgba(226, 226, 224, 0.18)")};
     border-radius: 12px;
     padding: 14px 16px;
     color: ${(props) => props.inputcolor || "#e2e2e0"};
@@ -310,24 +186,13 @@ const InputGroup = styled.div<{
     outline: none;
     width: 100%;
     transition: all 0.2s ease;
+    font-family: inherit;
+
+    &::placeholder { opacity: 0.5; }
 
     &:focus {
       border-color: #92f7c3;
       box-shadow: 0 0 0 3px rgba(146, 247, 195, 0.25);
-    }
-  }
-
-  select {
-    appearance: none;
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2399f6c4'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 16px center;
-    background-size: 24px;
-
-    option {
-      background: #ededeb;
-      color: #1a1d1b;
     }
   }
 `;
@@ -336,14 +201,11 @@ const ErrorLabel = styled.span`
   color: #ff4d4d;
   font-size: 12px;
   font-weight: 500;
-  margin-top: 4px;
 `;
 
 const FullWidthGroup = styled(InputGroup)`
   grid-column: span 2;
-  @media (max-width: 640px) {
-    grid-column: span 1;
-  }
+  @media (max-width: 640px) { grid-column: span 1; }
 `;
 
 const SubmitButton = styled.button`
@@ -359,15 +221,9 @@ const SubmitButton = styled.button`
   transition: all 0.2s;
   margin-top: 48px;
 
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
 
-  @media (max-width: 768px) {
-    width: 100%;
-    margin-top: 32px;
-  }
+  @media (max-width: 768px) { width: 100%; margin-top: 32px; }
 
   &:hover:not(:disabled) {
     background-color: #7ceba8;
@@ -375,15 +231,10 @@ const SubmitButton = styled.button`
   }
 `;
 
-/**
- * MODAL STYLES
- */
 const ModalOverlay = styled.div`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(5px);
   display: flex;
@@ -428,9 +279,5 @@ const ModalButton = styled.button`
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
-
-  &:hover {
-    background-color: #7ceba8;
-    transform: scale(1.02);
-  }
+  &:hover { background-color: #7ceba8; transform: scale(1.02); }
 `;

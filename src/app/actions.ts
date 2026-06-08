@@ -1,26 +1,18 @@
 "use server";
 
 import { contactEmailTemplate, confirmationEmailTemplate } from "@/lib/email-templates";
-import {
-  CONTACT_INTEREST_VALUES,
-  type ContactFormSubmission,
-} from "@/lib/contact-interest";
+import { type ContactFormSubmission } from "@/lib/contact-interest";
 import transporter from "@/lib/mail";
 import { appendLeadToSheet } from "@/lib/googleSheets";
 import { headers } from "next/headers";
 
 export async function sendContactEmail(formData: ContactFormSubmission) {
   try {
-    if (!CONTACT_INTEREST_VALUES.includes(formData.interest)) {
-      return { success: false, error: "Ungültige Auswahl." };
-    }
-
     const sanitized: ContactFormSubmission = {
-      firstName: formData.firstName.trim().slice(0, 100),
-      lastName: formData.lastName.trim().slice(0, 100),
+      name: formData.name.trim().slice(0, 200),
       email: formData.email.trim().toLowerCase().slice(0, 200),
-      company: formData.company.trim().slice(0, 200),
-      interest: formData.interest,
+      hotel: formData.hotel.trim().slice(0, 200),
+      locations: formData.locations.trim().slice(0, 100),
       message: formData.message.trim().slice(0, 2000),
     };
 
@@ -35,7 +27,7 @@ export async function sendContactEmail(formData: ContactFormSubmission) {
           from: `"F&B Heroes Web" <${process.env.SMTP_USER}>`,
           to: process.env.CONTACT_RECEIVER,
           replyTo: sanitized.email,
-          subject: `Neue Anfrage von ${sanitized.firstName} ${sanitized.lastName}`,
+          subject: `Neue Anfrage von ${sanitized.name}`,
           html: contactEmailTemplate(sanitized),
         }),
 

@@ -21,11 +21,10 @@ export async function appendLeadToSheet(
 
   const row = [
     now,
-    data.firstName,
-    data.lastName,
+    data.name,
     data.email,
-    data.company,
-    data.interest,
+    data.hotel,
+    data.locations,
     data.message,
     pageUrl,
     "website",
@@ -39,7 +38,7 @@ export async function appendLeadToSheet(
 
   await sheets.spreadsheets.values.append({
     spreadsheetId,
-    range: `${firstSheet}!A:K`,
+    range: `${firstSheet}!A:J`,
     valueInputOption: "USER_ENTERED",
     requestBody: { values: [row] },
   });
