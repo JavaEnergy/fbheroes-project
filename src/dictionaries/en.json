@@ -307,18 +307,18 @@
       "description": "Which system fits your property is what the System Check reveals. Three paths are possible — the numbers decide which one is right.",
       "ways": [
         {
-          "icon": "🏭",
-          "title": "System Kitchen",
-          "description": "Maximum standardization through systemic production and modern kitchen technology. Ideal for fluctuating footfall and a thin labor market.",
-          "focusLabel": "Focus",
-          "focus": "Standardization & Efficiency"
-        },
-        {
           "icon": "🍽️",
           "title": "Hybrid",
           "description": "A system as the backbone, complemented by fresh à-la-carte components. Perfect for hotels with restaurant ambitions despite labor cost pressure.",
           "focusLabel": "Focus",
           "focus": "Freshness & Process Reliability"
+        },
+        {
+          "icon": "🏭",
+          "title": "System Kitchen",
+          "description": "Maximum standardization through systemic production and modern kitchen technology. Ideal for fluctuating footfall and a thin labor market.",
+          "focusLabel": "Focus",
+          "focus": "Standardization & Efficiency"
         },
         {
           "icon": "🤖",

@@ -307,18 +307,18 @@
       "description": "Welches System zu Ihrem Haus passt, zeigt der Systemcheck. Drei Wege sind möglich, die Zahlen entscheiden, welcher der richtige ist.",
       "ways": [
         {
-          "icon": "🏭",
-          "title": "Systemküche",
-          "description": "Maximale Standardisierung durch systemische Produktion und moderne Küchentechnik. Ideal bei schwankender Frequenz und dünnem Personalmarkt.",
-          "focusLabel": "Fokus",
-          "focus": "Standardisierung & Effizienz"
-        },
-        {
           "icon": "🍽️",
           "title": "Hybrid",
           "description": "Ein System als Rückgrat, ergänzt um frische à-la-carte-Komponenten. Perfekt für Hotels mit Restaurantanspruch trotz Personalkostendruck.",
           "focusLabel": "Fokus",
           "focus": "Frische & Prozesssicherheit"
+        },
+        {
+          "icon": "🏭",
+          "title": "Systemküche",
+          "description": "Maximale Standardisierung durch systemische Produktion und moderne Küchentechnik. Ideal bei schwankender Frequenz und dünnem Personalmarkt.",
+          "focusLabel": "Fokus",
+          "focus": "Standardisierung & Effizienz"
         },
         {
           "icon": "🤖",
