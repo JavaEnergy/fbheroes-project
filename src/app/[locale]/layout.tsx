@@ -9,7 +9,7 @@ const googleSans = Google_Sans({
   subsets: ["latin"],
   weight: "variable",
   style: ["normal", "italic"],
-  display: "optional",
+  display: "swap",
   variable: "--font-google-sans",
 });
 
