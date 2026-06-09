@@ -177,22 +177,21 @@ const YouGetFooter = styled.p`
 `;
 
 const NotIncludedCard = styled.div`
-  background: #eeeeec;
+  background: #1a1c1b;
   border-radius: 16px;
   padding: 40px;
-  border: 1px solid rgba(112, 121, 115, 0.2);
   align-self: start;
 `;
 
 const NotIncludedTitle = styled.h4`
   font-size: 22px;
   font-weight: 700;
-  color: var(--primary-green);
+  color: #92f7c3;
   margin-bottom: 16px;
 `;
 
 const NotIncludedText = styled.p`
   font-size: 14px;
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
 `;

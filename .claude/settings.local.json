@@ -11,7 +11,25 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\User\\\\Desktop\\\\fbheroes-project\\\\src\\\\app\\\\[locale]\" -Recurse)",
       "Bash(Select-Object FullName)",
       "Bash(cp \"c:/Users/User/Desktop/fbheroes-project/IMG_2078.PNG\" \"c:/Users/User/Desktop/fbheroes-project/public/vipho-cover.png\")",
-      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); matches=[k for k in d.keys\\(\\) if 'Google' in k]; print\\(matches\\)\")"
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); matches=[k for k in d.keys\\(\\) if 'Google' in k]; print\\(matches\\)\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('contact', {}\\), indent=2\\)\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(cp /tmp/en_updated.json \"c:/Users/User/Desktop/fbheroes-project/src/dictionaries/en.json\")",
+      "Bash(cp /tmp/de_updated.json \"c:/Users/User/Desktop/fbheroes-project/src/dictionaries/de.json\")",
+      "Bash(npm install *)",
+      "Bash(git checkout *)",
+      "Bash(git push *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)",
+      "Bash(ls \"c:\\\\Users\\\\User\\\\Desktop\\\\fbheroes-project\\\\\" | grep -i icon)",
+      "Read(//c/Users/User/Desktop/**)",
+      "Bash(node -e \"require\\('./src/dictionaries/de.json'\\)\")",
+      "Bash(node -e \"require\\('./src/dictionaries/de.json'\\); console.log\\('JSON valid'\\)\")",
+      "Bash(node -e \"const fs = require\\('fs'\\); const txt = fs.readFileSync\\('./src/dictionaries/de.json', 'utf8'\\); console.log\\('char at 27755-27775:', JSON.stringify\\(txt.substring\\(27755, 27775\\)\\)\\); console.log\\('line 518-523:', txt.split\\('\\\\n'\\).slice\\(517, 523\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(node -e \"const fs = require\\('fs'\\); const txt = fs.readFileSync\\('./src/dictionaries/de.json', 'utf8'\\); const lines = txt.split\\('\\\\n'\\); for\\(let i=515; i<=525; i++\\) { console.log\\(i+1 + ':', JSON.stringify\\(lines[i]\\)\\); }\")",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const fs = require\\('fs'\\); const txt = fs.readFileSync\\('./src/dictionaries/de.json', 'utf8'\\); const lines = txt.split\\('\\\\n'\\); console.log\\(lines[598], '\\\\n---\\\\n', lines[599], '\\\\n---\\\\n', lines[600]\\)\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\User\\Desktop\\fbheroes-project"

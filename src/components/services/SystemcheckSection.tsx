@@ -2,6 +2,7 @@
 
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
+import NextImage from "next/image";
 
 interface Props {
   dict: {
@@ -38,13 +39,14 @@ export default function SystemcheckSection({ dict, locale }: Props) {
           <CtaButton href={`/${locale}/contact`}>{dict.button}</CtaButton>
         </Left>
         <Right>
-          <Orb>
-            <OrbRing />
-            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" opacity="0.5">
-              <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" stroke="#92f7c3" strokeWidth="1.2" strokeLinejoin="round" />
-              <path d="M7 7l10 10M17 7L7 17" stroke="#92f7c3" strokeWidth="1" strokeLinecap="round" />
-            </svg>
-          </Orb>
+          <ImageWrapper>
+            <NextImage
+              src="/service_icon.png"
+              alt="F&B System Check"
+              fill
+              style={{ objectFit: "contain" }}
+            />
+          </ImageWrapper>
         </Right>
       </Inner>
     </Section>
@@ -166,33 +168,20 @@ const CtaButton = styled(Link)`
 const Right = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 
   @media (max-width: 1024px) {
     order: -1;
   }
 `;
 
-const Orb = styled.div`
+const ImageWrapper = styled.div`
   position: relative;
   width: 360px;
   height: 360px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   @media (max-width: 768px) {
     width: 240px;
     height: 240px;
   }
-`;
-
-const OrbRing = styled.div`
-  position: absolute;
-  inset: -16px;
-  border-radius: 50%;
-  border: 3px dashed rgba(255, 255, 255, 0.15);
-  animation: ${spin} 60s linear infinite;
 `;

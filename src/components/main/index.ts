@@ -8,3 +8,4 @@ export { default as DreiWegeHomeSection } from "./DreiWegeHomeSection";
 export { default as ReferenzenSection } from "./ReferenzenSection";
 export { default as WarumSection } from "./WarumSection";
 export { default as SchnellcheckSection } from "./SchnellcheckSection";
+export { default as CtaSection } from "./CtaSection";

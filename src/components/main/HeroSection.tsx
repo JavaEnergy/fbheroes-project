@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import LinkButton from "../shared/LinkButton";
 import Link from "next/link";
 import NextImage from "next/image";
-import RightArrow from "@/svg";
 
 interface Props {
   description: string;
@@ -13,21 +11,15 @@ interface Props {
 }
 
 export default function HeroSection(props: Props) {
+  const hero = props.dict.home.hero;
   return (
     <HeroContainer>
       <HeroLeft>
-        <HeroTitle>{props.title}</HeroTitle>
-        <HeroDescription>{props.description}</HeroDescription>
+        <HeroSupertitle>{hero.supertitle}</HeroSupertitle>
+        <HeroTitle>{hero.title}</HeroTitle>
+        <HeroDescription>{hero.description}</HeroDescription>
         <Btns>
-          <LinkButton
-            label={props.dict.home.viewServices}
-            url={"/services"}
-            color={"#fff"}
-            bgcolor={"#2D6A4F"}
-          />
-          <ContactLink href="/contact">
-            {props.dict.home.bookCall} <RightArrow />
-          </ContactLink>
+          <CtaButton href="#contact">{hero.button}</CtaButton>
         </Btns>
       </HeroLeft>
       <HeroRight>
@@ -35,11 +27,10 @@ export default function HeroSection(props: Props) {
           <NextImage
             src={props.image}
             alt="Hero Image"
-            width={600}
-            height={700}
-            priority
+            fill
+            preload
             sizes="(max-width: 1024px) 100vw, 30vw"
-            style={{ width: "100%", height: "auto", borderRadius: "16px" }}
+            style={{ objectFit: "cover" }}
           />
         </HeroImageWrapper>
         <Stats>
@@ -58,7 +49,6 @@ const HeroContainer = styled.section`
   align-items: center;
   justify-content: center;
   gap: 128px;
-
   @media (max-width: 1024px) {
     padding: 32px 24px 72px;
     gap: 40px;
@@ -84,6 +74,15 @@ const HeroRight = styled.div`
   }
 `;
 
+const HeroSupertitle = styled.h3`
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--primary-green);
+  margin-bottom: 16px;
+`;
+
 const HeroTitle = styled.h1`
   font-size: 56px;
   font-weight: 700;
@@ -103,17 +102,28 @@ const Btns = styled.div`
   flex-wrap: wrap;
 `;
 
-const ContactLink = styled(Link)`
+const CtaButton = styled(Link)`
+  display: inline-block;
+  background-color: #0f5238;
+  color: #ffffff;
   font-size: 16px;
-  font-weight: bold;
-  color: #2d6a4f;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  &:hover {
+    background-color: #2d6a4f;
+  }
 `;
 
 const HeroImageWrapper = styled.div`
   width: 70%;
+  aspect-ratio: 6 / 7;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+
   @media (max-width: 1024px) {
     width: 100%;
   }

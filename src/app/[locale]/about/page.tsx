@@ -1,6 +1,6 @@
 import { getDictionary } from "@/lib/get-dictionary";
 import { getAboutPage } from "../../../../sanity/sanity-utils";
-import { CoreSection, HeroSection, VisionSection } from "@/components/about";
+import { HeroSection, VisionSection, ValuesSection } from "@/components/about";
 import styled from "styled-components";
 import LinkButton from "@/components/shared/LinkButton";
 
@@ -15,9 +15,9 @@ export default async function Network({ params }: Props) {
   console.log("About Page Data:", data.cardsSection);
   return (
     <>
-      <HeroSection {...data.hero} />
+      <HeroSection {...data.hero} description={dict.about.hero.description} />
       <VisionSection dict={dict.about.vision} />
-      <CoreSection {...data.cardsSection} />
+      <ValuesSection dict={dict.about.values} />
       <CTASection>
         <CTAContainer>
           <CTATitle>{dict.about.bottomCTA.title}</CTATitle>

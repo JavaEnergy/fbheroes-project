@@ -1,5 +1,4 @@
 import HeroSection, {
-  ContactForm,
   DasProblemSection,
   DerAnsatzSection,
   DerUnterschiedSection,
@@ -8,6 +7,7 @@ import HeroSection, {
   ReferenzenSection,
   WarumSection,
   SchnellcheckSection,
+  CtaSection,
 } from "@/components/main";
 import { getHomePage } from "../../../sanity/sanity-utils";
 import { getDictionary } from "@/lib/get-dictionary";
@@ -32,7 +32,12 @@ export default async function Home({ params }: Props) {
       <ReferenzenSection dict={dict.home.referenzen} />
       <WarumSection dict={dict.home.warum} />
       <SchnellcheckSection dict={dict.home.schnellcheck} locale={locale} />
-      <ContactForm dict={dict} />
+      <CtaSection
+        locale={locale}
+        title={locale === "de" ? "Bereit, Ihr F&B unabhängig zu machen?" : "Ready to make your F&B independent?"}
+        description={locale === "de" ? "Starten Sie mit dem F&B-Systemcheck. In einer Analyse klären wir Ihren Status quo, den passenden Weg und was er wirtschaftlich bringt." : "Start with the F&B System Check. In one analysis we clarify your status quo, the right path, and what it means economically."}
+        button={dict.home.soArbeitenWir.button}
+      />
     </>
   );
 }

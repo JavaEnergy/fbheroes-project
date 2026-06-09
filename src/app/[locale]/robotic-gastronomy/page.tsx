@@ -26,8 +26,11 @@ export default async function RoboticGastronomy({ params }: Props) {
       <WaysSection dict={dict.roboticPage.waysSection} />
       <Overview
         title={data.definitionCards.title}
-        description={data.definitionCards.description}
-        cards={data.definitionCards.cards}
+        description={dict.roboticPage.overview.description}
+        cards={data.definitionCards.cards.map((card: { title: string; icon: string; description: string }, i: number) => ({
+          ...card,
+          description: dict.roboticPage.overview.cardDescriptions[i] ?? card.description,
+        }))}
         titleHighlight={locale === "de" ? "Systemgastronomie" : "Systemized Hospitality"}
       />
       <ExpertiseSection

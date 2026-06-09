@@ -16,8 +16,22 @@ export default async function Network({ params }: Props) {
 
   return (
     <PageWrapper>
-      <HeroSection {...data.hero} dict={dict.network.hero} />
-      <CurationSection {...data.expertsSection} dict={dict.network.curation} />
+      <HeroSection
+        {...data.hero}
+        description={dict.network.hero.description}
+        dict={dict.network.hero}
+      />
+      <CurationSection
+        {...data.expertsSection}
+        description={dict.network.curation.headerDescription}
+        cards={data.expertsSection.cards.map(
+          (card: { title: string; description: string; image: string }, i: number) => ({
+            ...card,
+            description: dict.network.curation.cardDescriptions[i] ?? card.description,
+          })
+        )}
+        dict={dict.network.curation}
+      />
       <CTASection>
         <CTAContainer>
           <TextContent>

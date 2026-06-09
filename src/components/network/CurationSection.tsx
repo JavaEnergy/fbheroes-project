@@ -93,7 +93,6 @@ const GridWrapper = styled.div`
   grid-template-columns: repeat(3, minmax(0, 390px));
   gap: 32px;
   width: 100%;
-  justify-content: center;
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, minmax(0, 390px));
     width: 100%;

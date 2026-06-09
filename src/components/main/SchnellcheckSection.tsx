@@ -1,18 +1,19 @@
 import styled from "styled-components";
-import Link from "next/link";
 
 interface Props {
   dict: { title: string; description: string; button: string };
   locale: string;
 }
 
-export default function SchnellcheckSection({ dict, locale }: Props) {
+export default function SchnellcheckSection({ dict }: Props) {
   return (
     <Section>
       <Inner>
         <Title>{dict.title}</Title>
         <Description>{dict.description}</Description>
-        <CtaLink href={`/${locale}/contact`}>{dict.button}</CtaLink>
+        <CtaLink href="https://fbhereos.scoreapp.com/" target="_blank" rel="noopener noreferrer">
+          {dict.button}
+        </CtaLink>
       </Inner>
     </Section>
   );
@@ -48,7 +49,7 @@ const Description = styled.p`
   margin-bottom: 40px;
 `;
 
-const CtaLink = styled(Link)`
+const CtaLink = styled.a`
   display: inline-block;
   background-color: #006c48;
   color: #fff;
