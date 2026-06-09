@@ -90,21 +90,19 @@ const Description = styled.p`
 
 const GridWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 390px));
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   width: 100%;
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, minmax(0, 390px));
-    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     grid-template-columns: 1fr;
   }
 `;
 
 const ExpertCard = styled.div`
   background: #ffffff;
-  max-width: 390px;
   padding: 40px;
   border-radius: 24px;
   display: flex;
@@ -118,17 +116,14 @@ const ExpertCard = styled.div`
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0);
 
   &:hover {
-    transform: translateY(-12px);
-    scale: 1.2;
+    transform: translateY(-4px);
     box-shadow: 0 10px 30px -5px rgba(15, 82, 56, 0.3);
   }
   &:active {
-    transform: translateY(-4px);
-    scale: 1.02;
+    transform: translateY(-2px);
     transition: all 0.1s ease;
   }
   @media (max-width: 1024px) {
-    max-width: 100%;
     align-items: center;
     text-align: center;
   }
