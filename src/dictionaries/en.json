@@ -31,12 +31,12 @@
     "dasProblem": {
       "badge": "The Problem",
       "title": "As long as F&B depends on one person, it's your biggest risk.",
-      "description": "In most properties, the kitchen stands or falls with the person at the stove. When they leave, quality suffers — and the search starts over. Good kitchen expertise is becoming increasingly rare and expensive. A single property can barely afford it on its own. This makes F&B the greatest lever for profitability — and at the same time the greatest source of uncertainty."
+      "description": "In most properties, the kitchen stands or falls with the person at the stove. When they leave, quality suffers, and the search starts over. Good kitchen expertise is becoming increasingly rare and expensive. A single property can barely afford it on its own. This makes F&B the greatest lever for profitability — and at the same time the greatest source of uncertainty."
     },
     "derAnsatz": {
       "badge": "The Approach",
       "title": "First the business model. Then the concept. Then the execution.",
-      "description": "Most people start with the menu — we start with the numbers. First we determine whether the F&B operation is economically viable. Only then come the concept, menu, and technology.",
+      "description": "Most people start with the menu. We start with the numbers. First we determine whether the F&B operation is economically viable. Only then come the concept, menu, and technology.",
       "techNote": "Technology is always part of our thinking from the very start.",
       "steps": [
         { "number": "01", "title": "Business Model" },
@@ -47,7 +47,7 @@
     "derUnterschied": {
       "badge": "The Difference",
       "title": "The strength of a chain. The freedom of an independent hotel.",
-      "description": "Chains aren't superior because of their size, but because of shared knowledge and clear systems. That's exactly what we bring to your property — without it losing its independence. What we solve once, benefits everyone."
+      "description": "Chains aren't superior because of their size, but because of shared knowledge and clear systems. That's exactly what we bring to your property, without it losing its independence. What we solve once, benefits everyone."
     },
     "soArbeitenWir": {
       "badge": "How We Work",

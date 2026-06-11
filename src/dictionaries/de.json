@@ -31,12 +31,12 @@
     "dasProblem": {
       "badge": "Das Problem",
       "title": "Solange das F&B an einer Person hängt, ist es Ihr größtes Risiko.",
-      "description": "In den meisten Häusern steht und fällt die Küche mit der Person am Herd. Geht sie, leidet die Qualität – und die Suche beginnt von vorne. Gutes Küchen-Know-how wird immer seltener und teurer. Ein einzelnes Haus kann es sich kaum noch allein leisten. So wird das F&B zum größten Hebel für die Rentabilität – und zugleich zum größten Unsicherheitsfaktor."
+      "description": "In den meisten Häusern steht und fällt die Küche mit der Person am Herd. Geht sie, leidet die Qualität, und die Suche beginnt von vorne. Gutes Küchen-Know-how wird immer seltener und teurer. Ein einzelnes Haus kann es sich kaum noch allein leisten. So wird das F&B zum größten Hebel für die Rentabilität – und zugleich zum größten Unsicherheitsfaktor."
     },
     "derAnsatz": {
       "badge": "Der Ansatz",
       "title": "Erst das Geschäftsmodell. Dann das Konzept. Dann die Umsetzung.",
-      "description": "Die meisten fangen mit der Karte an – wir mit der Rechnung. Zuerst klären wir, ob der F&B-Betrieb sich wirtschaftlich trägt. Erst danach folgen Konzept, Karte und Technik.",
+      "description": "Die meisten fangen mit der Karte an. Wir fangen mit der Rechnung an. Zuerst klären wir, ob der F&B-Betrieb sich wirtschaftlich trägt. Erst danach folgen Konzept, Karte und Technik.",
       "techNote": "Technologie ist bei uns immer von Anfang an mitgedacht.",
       "steps": [
         { "number": "01", "title": "Geschäftsmodell" },
@@ -47,7 +47,7 @@
     "derUnterschied": {
       "badge": "Der Unterschied",
       "title": "Die Stärke einer Kette. Die Freiheit eines Einzelhauses.",
-      "description": "Ketten sind nicht wegen ihrer Größe überlegen, sondern wegen geteilten Wissens und klarer Systeme. Genau das bringen wir in Ihr Haus – ohne dass es seine Unabhängigkeit verliert. Was wir einmal lösen, kommt allen zugute."
+      "description": "Ketten sind nicht wegen ihrer Größe überlegen, sondern wegen geteilten Wissens und klarer Systeme. Genau das bringen wir in Ihr Haus, ohne dass es seine Unabhängigkeit verliert. Was wir einmal lösen, kommt allen zugute."
     },
     "soArbeitenWir": {
       "badge": "So arbeiten wir",
