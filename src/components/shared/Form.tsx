@@ -1,12 +1,34 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
+import Script from "next/script";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { sendContactEmail } from "@/app/actions";
 import { type ContactFormSubmission } from "@/lib/contact-interest";
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+interface TurnstileApi {
+  render: (
+    el: HTMLElement,
+    options: {
+      sitekey: string;
+      callback: (token: string) => void;
+      "expired-callback"?: () => void;
+      "error-callback"?: () => void;
+    },
+  ) => string;
+  reset: (widgetId?: string) => void;
+}
+
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi;
+  }
+}
 
 interface ContactProps {
   dict: {
@@ -58,14 +80,54 @@ export default function Form({ dict, inputBgColor, inputColor, panelBgColor }: C
   const { right, errors: errorDict, modal: modalDict } = dict.contact;
   const [modalStatus, setModalStatus] = useState<"idle" | "success" | "error">("idle");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileError, setTurnstileError] = useState(false);
+
+  const widgetContainerRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const tokenRef = useRef<string>("");
 
   const { register, handleSubmit, reset, formState: { errors } } =
     useForm<ContactFormSubmission>({ resolver: yupResolver(createSchema(errorDict)) });
 
+  const renderTurnstile = () => {
+    if (
+      !window.turnstile ||
+      !widgetContainerRef.current ||
+      widgetIdRef.current !== null ||
+      !TURNSTILE_SITE_KEY
+    ) {
+      return;
+    }
+    widgetIdRef.current = window.turnstile.render(widgetContainerRef.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      callback: (token) => {
+        tokenRef.current = token;
+        setTurnstileError(false);
+      },
+      "expired-callback": () => {
+        tokenRef.current = "";
+      },
+      "error-callback": () => {
+        tokenRef.current = "";
+      },
+    });
+  };
+
+  const resetTurnstile = () => {
+    tokenRef.current = "";
+    if (window.turnstile && widgetIdRef.current !== null) {
+      window.turnstile.reset(widgetIdRef.current);
+    }
+  };
+
   const onSubmit = async (data: ContactFormSubmission) => {
+    if (!tokenRef.current) {
+      setTurnstileError(true);
+      return;
+    }
     setIsSubmitting(true);
     try {
-      const result = await sendContactEmail(data);
+      const result = await sendContactEmail(data, tokenRef.current);
       if (result.success) {
         setModalStatus("success");
         reset();
@@ -75,6 +137,7 @@ export default function Form({ dict, inputBgColor, inputColor, panelBgColor }: C
     } catch {
       setModalStatus("error");
     } finally {
+      resetTurnstile();
       setIsSubmitting(false);
     }
   };
@@ -116,10 +179,24 @@ export default function Form({ dict, inputBgColor, inputColor, panelBgColor }: C
           </FullWidthGroup>
         </FormGrid>
 
+        <TurnstileWrapper>
+          <div ref={widgetContainerRef} />
+          {turnstileError && (
+            <ErrorLabel>{errorDict.required}</ErrorLabel>
+          )}
+        </TurnstileWrapper>
+
         <SubmitButton type="submit" disabled={isSubmitting}>
           {isSubmitting ? "..." : right.submit}
         </SubmitButton>
       </RightColumn>
+
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        strategy="afterInteractive"
+        onLoad={renderTurnstile}
+        onReady={renderTurnstile}
+      />
 
       {modalStatus !== "idle" && (
         <ModalOverlay onClick={closeModal}>
@@ -206,6 +283,13 @@ const ErrorLabel = styled.span`
 const FullWidthGroup = styled(InputGroup)`
   grid-column: span 2;
   @media (max-width: 640px) { grid-column: span 1; }
+`;
+
+const TurnstileWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
 `;
 
 const SubmitButton = styled.button`
