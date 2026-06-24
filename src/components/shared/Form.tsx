@@ -16,6 +16,7 @@ interface TurnstileApi {
     el: HTMLElement,
     options: {
       sitekey: string;
+      language?: string;
       callback: (token: string) => void;
       "expired-callback"?: () => void;
       "error-callback"?: () => void;
@@ -106,6 +107,7 @@ export default function Form({ dict, inputBgColor, inputColor, panelBgColor }: C
     }
     widgetIdRef.current = window.turnstile.render(widgetContainerRef.current, {
       sitekey: TURNSTILE_SITE_KEY,
+      language: document.documentElement.lang || "de",
       callback: (token) => {
         tokenRef.current = token;
         setTurnstileError(false);
