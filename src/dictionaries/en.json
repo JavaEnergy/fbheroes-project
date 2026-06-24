@@ -623,7 +623,8 @@
     },
     "errors": {
       "required": "This field is required",
-      "email": "Please enter a valid email address"
+      "email": "Please enter a valid email address",
+      "turnstile": "Please confirm you are not a robot."
     },
     "potentialCheck": {
       "badge": "POTENZIAL-CHECK",

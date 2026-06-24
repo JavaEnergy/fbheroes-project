@@ -623,7 +623,8 @@
     },
     "errors": {
       "required": "Dieses Feld ist ein Pflichtfeld",
-      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "turnstile": "Bitte bestätigen Sie, dass Sie kein Roboter sind."
     },
     "potentialCheck": {
       "badge": "POTENZIAL-CHECK",

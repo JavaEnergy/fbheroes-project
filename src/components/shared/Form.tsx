@@ -51,6 +51,7 @@ interface ContactProps {
       errors: {
         required: string;
         email: string;
+        turnstile: string;
       };
       modal: {
         successTitle: string;
@@ -90,11 +91,16 @@ export default function Form({ dict, inputBgColor, inputColor, panelBgColor }: C
     useForm<ContactFormSubmission>({ resolver: yupResolver(createSchema(errorDict)) });
 
   const renderTurnstile = () => {
+    if (!TURNSTILE_SITE_KEY) {
+      console.error(
+        "NEXT_PUBLIC_TURNSTILE_SITE_KEY is not set — restart the dev server after adding it to .env.local",
+      );
+      return;
+    }
     if (
       !window.turnstile ||
       !widgetContainerRef.current ||
-      widgetIdRef.current !== null ||
-      !TURNSTILE_SITE_KEY
+      widgetIdRef.current !== null
     ) {
       return;
     }
@@ -109,6 +115,7 @@ export default function Form({ dict, inputBgColor, inputColor, panelBgColor }: C
       },
       "error-callback": () => {
         tokenRef.current = "";
+        setTurnstileError(true);
       },
     });
   };
@@ -182,7 +189,7 @@ export default function Form({ dict, inputBgColor, inputColor, panelBgColor }: C
         <TurnstileWrapper>
           <div ref={widgetContainerRef} />
           {turnstileError && (
-            <ErrorLabel>{errorDict.required}</ErrorLabel>
+            <ErrorLabel>{errorDict.turnstile}</ErrorLabel>
           )}
         </TurnstileWrapper>
 
